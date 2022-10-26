@@ -1,0 +1,10 @@
+^C:\USERS\PC\DESKTOP\NEW FOLDER\BUILD\CMAKEFILES\EDA1E3D2238C4149E2F12CF9FCF2909D\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/pc/Desktop/New folder" "-BC:/Users/pc/Desktop/New folder/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/pc/Desktop/New folder/build/imgu_ring.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

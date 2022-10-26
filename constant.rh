@@ -1,0 +1,758 @@
+
+ImGuiWindowFlags_None = 0
+ImGuiWindowFlags_NoTitleBar = 1 << 0
+ImGuiWindowFlags_NoResize = 1 << 1
+ImGuiWindowFlags_NoMove = 1 << 2
+ImGuiWindowFlags_NoScrollbar = 1 << 3
+ImGuiWindowFlags_NoScrollWithMouse = 1 << 4
+ImGuiWindowFlags_NoCollapse = 1 << 5
+ImGuiWindowFlags_AlwaysAutoResize = 1 << 6
+ImGuiWindowFlags_NoBackground = 1 << 7
+ImGuiWindowFlags_NoSavedSettings = 1 << 8
+ImGuiWindowFlags_NoMouseInputs = 1 << 9
+ImGuiWindowFlags_MenuBar = 1 << 10
+ImGuiWindowFlags_HorizontalScrollbar = 1 << 11
+ImGuiWindowFlags_NoFocusOnAppearing = 1 << 12
+ImGuiWindowFlags_NoBringToFrontOnFocus = 1 << 13
+ImGuiWindowFlags_AlwaysVerticalScrollbar= 1 << 14
+ImGuiWindowFlags_AlwaysHorizontalScrollbar=1<< 15
+ImGuiWindowFlags_AlwaysUseWindowPadding = 1 << 16
+ImGuiWindowFlags_NoNavInputs = 1 << 18
+ImGuiWindowFlags_NoNavFocus = 1 << 19
+ImGuiWindowFlags_UnsavedDocument = 1 << 20
+ImGuiWindowFlags_NoDocking = 1 << 21
+ImGuiWindowFlags_NoNav = ImGuiWindowFlags_NoNavInputs | ImGuiWindowFlags_NoNavFocus
+ImGuiWindowFlags_NoDecoration = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoCollapse
+ImGuiWindowFlags_NoInputs = ImGuiWindowFlags_NoMouseInputs | ImGuiWindowFlags_NoNavInputs | ImGuiWindowFlags_NoNavFocus
+ImGuiWindowFlags_NavFlattened = 1 << 23
+ImGuiWindowFlags_ChildWindow = 1 << 24
+ImGuiWindowFlags_Tooltip = 1 << 25
+ImGuiWindowFlags_Popup = 1 << 26
+ImGuiWindowFlags_Modal = 1 << 27
+ImGuiWindowFlags_ChildMenu = 1 << 28
+ImGuiWindowFlags_DockNodeHost = 1 << 29
+
+
+
+
+ImGuiInputTextFlags_None = 0
+ImGuiInputTextFlags_CharsDecimal = 1 << 0
+ImGuiInputTextFlags_CharsHexadecimal = 1 << 1
+ImGuiInputTextFlags_CharsUppercase = 1 << 2
+ImGuiInputTextFlags_CharsNoBlank = 1 << 3
+ImGuiInputTextFlags_AutoSelectAll = 1 << 4
+ImGuiInputTextFlags_EnterReturnsTrue = 1 << 5
+ImGuiInputTextFlags_CallbackCompletion = 1 << 6
+ImGuiInputTextFlags_CallbackHistory = 1 << 7
+ImGuiInputTextFlags_CallbackAlways = 1 << 8
+ImGuiInputTextFlags_CallbackCharFilter = 1 << 9
+ImGuiInputTextFlags_AllowTabInput = 1 << 10
+ImGuiInputTextFlags_CtrlEnterForNewLine = 1 << 11
+ImGuiInputTextFlags_NoHorizontalScroll = 1 << 12
+ImGuiInputTextFlags_AlwaysOverwrite = 1 << 13
+ImGuiInputTextFlags_ReadOnly = 1 << 14
+ImGuiInputTextFlags_Password = 1 << 15
+ImGuiInputTextFlags_NoUndoRedo = 1 << 16
+ImGuiInputTextFlags_CharsScientific = 1 << 17
+ImGuiInputTextFlags_CallbackResize = 1 << 18
+ImGuiInputTextFlags_CallbackEdit = 1 << 19
+
+
+
+
+ImGuiTreeNodeFlags_None = 0
+ImGuiTreeNodeFlags_Selected = 1 << 0
+ImGuiTreeNodeFlags_Framed = 1 << 1
+ImGuiTreeNodeFlags_AllowItemOverlap = 1 << 2
+ImGuiTreeNodeFlags_NoTreePushOnOpen = 1 << 3
+ImGuiTreeNodeFlags_NoAutoOpenOnLog = 1 << 4
+ImGuiTreeNodeFlags_DefaultOpen = 1 << 5
+ImGuiTreeNodeFlags_OpenOnDoubleClick = 1 << 6
+ImGuiTreeNodeFlags_OpenOnArrow = 1 << 7
+ImGuiTreeNodeFlags_Leaf = 1 << 8
+ImGuiTreeNodeFlags_Bullet = 1 << 9
+ImGuiTreeNodeFlags_FramePadding = 1 << 10
+ImGuiTreeNodeFlags_SpanAvailWidth = 1 << 11
+ImGuiTreeNodeFlags_SpanFullWidth = 1 << 12
+ImGuiTreeNodeFlags_NavLeftJumpsBackHere = 1 << 13
+ImGuiTreeNodeFlags_CollapsingHeader = ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_NoTreePushOnOpen | ImGuiTreeNodeFlags_NoAutoOpenOnLog
+
+
+
+
+ImGuiPopupFlags_None = 0
+ImGuiPopupFlags_MouseButtonLeft = 0
+ImGuiPopupFlags_MouseButtonRight = 1
+ImGuiPopupFlags_MouseButtonMiddle = 2
+ImGuiPopupFlags_MouseButtonMask_ = 0x1F
+ImGuiPopupFlags_MouseButtonDefault_ = 1
+ImGuiPopupFlags_NoOpenOverExistingPopup = 1 << 5
+ImGuiPopupFlags_NoOpenOverItems = 1 << 6
+ImGuiPopupFlags_AnyPopupId = 1 << 7
+ImGuiPopupFlags_AnyPopupLevel = 1 << 8
+ImGuiPopupFlags_AnyPopup = ImGuiPopupFlags_AnyPopupId | ImGuiPopupFlags_AnyPopupLevel
+
+
+
+ImGuiSelectableFlags_None = 0
+ImGuiSelectableFlags_DontClosePopups = 1 << 0
+ImGuiSelectableFlags_SpanAllColumns = 1 << 1
+ImGuiSelectableFlags_AllowDoubleClick = 1 << 2
+ImGuiSelectableFlags_Disabled = 1 << 3
+ImGuiSelectableFlags_AllowItemOverlap = 1 << 4
+
+
+
+
+ImGuiComboFlags_None = 0
+ImGuiComboFlags_PopupAlignLeft = 1 << 0
+ImGuiComboFlags_HeightSmall = 1 << 1
+ImGuiComboFlags_HeightRegular = 1 << 2
+ImGuiComboFlags_HeightLarge = 1 << 3
+ImGuiComboFlags_HeightLargest = 1 << 4
+ImGuiComboFlags_NoArrowButton = 1 << 5
+ImGuiComboFlags_NoPreview = 1 << 6
+ImGuiComboFlags_HeightMask_ = ImGuiComboFlags_HeightSmall | ImGuiComboFlags_HeightRegular | ImGuiComboFlags_HeightLarge | ImGuiComboFlags_HeightLargest
+
+
+
+ImGuiTabBarFlags_None = 0
+ImGuiTabBarFlags_Reorderable = 1 << 0
+ImGuiTabBarFlags_AutoSelectNewTabs = 1 << 1
+ImGuiTabBarFlags_TabListPopupButton = 1 << 2
+ImGuiTabBarFlags_NoCloseWithMiddleMouseButton = 1 << 3
+ImGuiTabBarFlags_NoTabListScrollingButtons = 1 << 4
+ImGuiTabBarFlags_NoTooltip = 1 << 5
+ImGuiTabBarFlags_FittingPolicyResizeDown = 1 << 6
+ImGuiTabBarFlags_FittingPolicyScroll = 1 << 7
+ImGuiTabBarFlags_FittingPolicyMask_ = ImGuiTabBarFlags_FittingPolicyResizeDown | ImGuiTabBarFlags_FittingPolicyScroll
+ImGuiTabBarFlags_FittingPolicyDefault_ = ImGuiTabBarFlags_FittingPolicyResizeDown
+
+
+
+
+ImGuiTabItemFlags_None = 0
+ImGuiTabItemFlags_UnsavedDocument = 1 << 0
+ImGuiTabItemFlags_SetSelected = 1 << 1
+ImGuiTabItemFlags_NoCloseWithMiddleMouseButton = 1 << 2
+ImGuiTabItemFlags_NoPushId = 1 << 3
+ImGuiTabItemFlags_NoTooltip = 1 << 4
+ImGuiTabItemFlags_NoReorder = 1 << 5
+ImGuiTabItemFlags_Leading = 1 << 6
+ImGuiTabItemFlags_Trailing = 1 << 7
+
+
+
+ImGuiTableFlags_None = 0
+ImGuiTableFlags_Resizable = 1 << 0
+ImGuiTableFlags_Reorderable = 1 << 1
+ImGuiTableFlags_Hideable = 1 << 2
+ImGuiTableFlags_Sortable = 1 << 3
+ImGuiTableFlags_NoSavedSettings = 1 << 4
+ImGuiTableFlags_ContextMenuInBody = 1 << 5
+ImGuiTableFlags_RowBg = 1 << 6
+ImGuiTableFlags_BordersInnerH = 1 << 7
+ImGuiTableFlags_BordersOuterH = 1 << 8
+ImGuiTableFlags_BordersInnerV = 1 << 9
+ImGuiTableFlags_BordersOuterV = 1 << 10
+ImGuiTableFlags_BordersH = ImGuiTableFlags_BordersInnerH | ImGuiTableFlags_BordersOuterH
+ImGuiTableFlags_BordersV = ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_BordersOuterV
+ImGuiTableFlags_BordersInner = ImGuiTableFlags_BordersInnerV | ImGuiTableFlags_BordersInnerH
+ImGuiTableFlags_BordersOuter = ImGuiTableFlags_BordersOuterV | ImGuiTableFlags_BordersOuterH
+ImGuiTableFlags_Borders = ImGuiTableFlags_BordersInner | ImGuiTableFlags_BordersOuter
+ImGuiTableFlags_NoBordersInBody = 1 << 11
+ImGuiTableFlags_NoBordersInBodyUntilResize = 1 << 12
+ImGuiTableFlags_SizingFixedFit = 1 << 13
+ImGuiTableFlags_SizingFixedSame = 2 << 13
+ImGuiTableFlags_SizingStretchProp = 3 << 13
+ImGuiTableFlags_SizingStretchSame = 4 << 13
+ImGuiTableFlags_NoHostExtendX = 1 << 16
+ImGuiTableFlags_NoHostExtendY = 1 << 17
+ImGuiTableFlags_NoKeepColumnsVisible = 1 << 18
+ImGuiTableFlags_PreciseWidths = 1 << 19
+ImGuiTableFlags_NoClip = 1 << 20
+ImGuiTableFlags_PadOuterX = 1 << 21
+ImGuiTableFlags_NoPadOuterX = 1 << 22
+ImGuiTableFlags_NoPadInnerX = 1 << 23
+ImGuiTableFlags_ScrollX = 1 << 24
+ImGuiTableFlags_ScrollY = 1 << 25
+ImGuiTableFlags_SortMulti = 1 << 26
+ImGuiTableFlags_SortTristate = 1 << 27
+ImGuiTableFlags_SizingMask_ = ImGuiTableFlags_SizingFixedFit | ImGuiTableFlags_SizingFixedSame | ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_SizingStretchSame
+
+
+
+
+
+ImGuiTableColumnFlags_None = 0
+ImGuiTableColumnFlags_Disabled = 1 << 0
+ImGuiTableColumnFlags_DefaultHide = 1 << 1
+ImGuiTableColumnFlags_DefaultSort = 1 << 2
+ImGuiTableColumnFlags_WidthStretch = 1 << 3
+ImGuiTableColumnFlags_WidthFixed = 1 << 4
+ImGuiTableColumnFlags_NoResize = 1 << 5
+ImGuiTableColumnFlags_NoReorder = 1 << 6
+ImGuiTableColumnFlags_NoHide = 1 << 7
+ImGuiTableColumnFlags_NoClip = 1 << 8
+ImGuiTableColumnFlags_NoSort = 1 << 9
+ImGuiTableColumnFlags_NoSortAscending = 1 << 10
+ImGuiTableColumnFlags_NoSortDescending = 1 << 11
+ImGuiTableColumnFlags_NoHeaderLabel = 1 << 12
+ImGuiTableColumnFlags_NoHeaderWidth = 1 << 13
+ImGuiTableColumnFlags_PreferSortAscending = 1 << 14
+ImGuiTableColumnFlags_PreferSortDescending = 1 << 15
+ImGuiTableColumnFlags_IndentEnable = 1 << 16
+ImGuiTableColumnFlags_IndentDisable = 1 << 17
+ImGuiTableColumnFlags_IsEnabled = 1 << 24
+ImGuiTableColumnFlags_IsVisible = 1 << 25
+ImGuiTableColumnFlags_IsSorted = 1 << 26
+ImGuiTableColumnFlags_IsHovered = 1 << 27
+ImGuiTableColumnFlags_WidthMask_ = ImGuiTableColumnFlags_WidthStretch | ImGuiTableColumnFlags_WidthFixed
+ImGuiTableColumnFlags_IndentMask_ = ImGuiTableColumnFlags_IndentEnable | ImGuiTableColumnFlags_IndentDisable
+ImGuiTableColumnFlags_StatusMask_ = ImGuiTableColumnFlags_IsEnabled | ImGuiTableColumnFlags_IsVisible | ImGuiTableColumnFlags_IsSorted | ImGuiTableColumnFlags_IsHovered
+ImGuiTableColumnFlags_NoDirectResize_ = 1 << 30
+
+
+
+ImGuiTableRowFlags_None = 0
+ImGuiTableRowFlags_Headers = 1 << 0
+
+
+
+ImGuiTableBgTarget_None = 0
+ImGuiTableBgTarget_RowBg0 = 1
+ImGuiTableBgTarget_RowBg1 = 2
+ImGuiTableBgTarget_CellBg = 3
+
+
+
+
+ImGuiFocusedFlags_None = 0
+ImGuiFocusedFlags_ChildWindows = 1 << 0
+ImGuiFocusedFlags_RootWindow = 1 << 1
+ImGuiFocusedFlags_AnyWindow = 1 << 2
+ImGuiFocusedFlags_NoPopupHierarchy = 1 << 3
+ImGuiFocusedFlags_DockHierarchy = 1 << 4
+ImGuiFocusedFlags_RootAndChildWindows = ImGuiFocusedFlags_RootWindow | ImGuiFocusedFlags_ChildWindows
+
+
+
+
+
+ImGuiHoveredFlags_None = 0
+ImGuiHoveredFlags_ChildWindows = 1 << 0
+ImGuiHoveredFlags_RootWindow = 1 << 1
+ImGuiHoveredFlags_AnyWindow = 1 << 2
+ImGuiHoveredFlags_NoPopupHierarchy = 1 << 3
+ImGuiHoveredFlags_DockHierarchy = 1 << 4
+ImGuiHoveredFlags_AllowWhenBlockedByPopup = 1 << 5
+ImGuiHoveredFlags_AllowWhenBlockedByActiveItem = 1 << 7
+ImGuiHoveredFlags_AllowWhenOverlapped = 1 << 8
+ImGuiHoveredFlags_AllowWhenDisabled = 1 << 9
+ImGuiHoveredFlags_NoNavOverride = 1 << 10
+ImGuiHoveredFlags_RectOnly = ImGuiHoveredFlags_AllowWhenBlockedByPopup | ImGuiHoveredFlags_AllowWhenBlockedByActiveItem | ImGuiHoveredFlags_AllowWhenOverlapped
+ImGuiHoveredFlags_RootAndChildWindows = ImGuiHoveredFlags_RootWindow | ImGuiHoveredFlags_ChildWindows
+
+
+
+
+ImGuiDockNodeFlags_None = 0
+ImGuiDockNodeFlags_KeepAliveOnly = 1 << 0
+ImGuiDockNodeFlags_NoDockingInCentralNode = 1 << 2
+ImGuiDockNodeFlags_PassthruCentralNode = 1 << 3
+ImGuiDockNodeFlags_NoSplit = 1 << 4
+ImGuiDockNodeFlags_NoResize = 1 << 5
+ImGuiDockNodeFlags_AutoHideTabBar = 1 << 6
+
+
+
+
+ImGuiDragDropFlags_None = 0
+ImGuiDragDropFlags_SourceNoPreviewTooltip = 1 << 0
+ImGuiDragDropFlags_SourceNoDisableHover = 1 << 1
+ImGuiDragDropFlags_SourceNoHoldToOpenOthers = 1 << 2
+ImGuiDragDropFlags_SourceAllowNullID = 1 << 3
+ImGuiDragDropFlags_SourceExtern = 1 << 4
+ImGuiDragDropFlags_SourceAutoExpirePayload = 1 << 5
+ImGuiDragDropFlags_AcceptBeforeDelivery = 1 << 10
+ImGuiDragDropFlags_AcceptNoDrawDefaultRect = 1 << 11
+ImGuiDragDropFlags_AcceptNoPreviewTooltip = 1 << 12
+ImGuiDragDropFlags_AcceptPeekOnly = ImGuiDragDropFlags_AcceptBeforeDelivery | ImGuiDragDropFlags_AcceptNoDrawDefaultRect
+
+
+ImGuiDir_None = -1
+ImGuiDir_Left = 0
+ImGuiDir_Right = 1
+ImGuiDir_Up = 2
+ImGuiDir_Down = 3
+	
+	
+	
+ImGuiSortDirection_None = 0
+ImGuiSortDirection_Ascending = 1
+ImGuiSortDirection_Descending = 2
+
+
+
+
+##############################################################
+
+
+ImGuiKey_LeftArrow  = 513
+ImGuiKey_RightArrow  = 514
+ImGuiKey_UpArrow  = 515
+ImGuiKey_DownArrow  = 516
+ImGuiKey_PageUp  = 517
+ImGuiKey_PageDown  = 518
+ImGuiKey_Home  = 519
+ImGuiKey_End  = 520
+ImGuiKey_Insert  = 521
+ImGuiKey_Delete  = 522
+ImGuiKey_Backspace  = 523
+ImGuiKey_Space  = 524
+ImGuiKey_Enter  = 525
+ImGuiKey_Escape  = 526
+ImGuiKey_LeftCtrl  = 527
+ImGuiKey_LeftShift  = 528
+ImGuiKey_LeftAlt  = 529
+ImGuiKey_LeftSuper  = 530
+ImGuiKey_RightCtrl  = 531
+ImGuiKey_RightShift  = 532
+ImGuiKey_RightAlt  = 533
+ImGuiKey_RightSuper  = 534
+ImGuiKey_Menu  = 535
+ImGuiKey_0  = 536
+ImGuiKey_1  = 537
+ImGuiKey_2  = 538
+ImGuiKey_3  = 539
+ImGuiKey_4  = 540
+ImGuiKey_5  = 541
+ImGuiKey_6  = 542
+ImGuiKey_7  = 543
+ImGuiKey_8  = 544
+ImGuiKey_9  = 545
+ImGuiKey_A  = 546
+ImGuiKey_B  = 547
+ImGuiKey_C  = 548
+ImGuiKey_D  = 549
+ImGuiKey_E  = 550
+ImGuiKey_F  = 551
+ImGuiKey_G  = 552
+ImGuiKey_H  = 553
+ImGuiKey_I  = 554
+ImGuiKey_J  = 555
+ImGuiKey_K  = 556
+ImGuiKey_L  = 557
+ImGuiKey_M  = 558
+ImGuiKey_N  = 559
+ImGuiKey_O  = 560
+ImGuiKey_P  = 561
+ImGuiKey_Q  = 562
+ImGuiKey_R  = 563
+ImGuiKey_S  = 564
+ImGuiKey_T  = 565
+ImGuiKey_U  = 566
+ImGuiKey_V  = 567
+ImGuiKey_W  = 568
+ImGuiKey_X  = 569
+ImGuiKey_Y  = 570
+ImGuiKey_Z  = 571
+ImGuiKey_F1  = 572
+ImGuiKey_F2  = 573
+ImGuiKey_F3  = 574
+ImGuiKey_F4  = 575
+ImGuiKey_F5  = 576
+ImGuiKey_F6  = 577
+ImGuiKey_F7  = 578
+ImGuiKey_F8  = 579
+ImGuiKey_F9  = 580
+ImGuiKey_F10  = 581
+ImGuiKey_F11  = 582
+ImGuiKey_F12  = 583
+ImGuiKey_Apostrophe  = 584
+ImGuiKey_Comma  = 585
+ImGuiKey_Minus  = 586
+ImGuiKey_Period  = 587
+ImGuiKey_Slash  = 588
+ImGuiKey_Semicolon  = 589
+ImGuiKey_Equal  = 590
+ImGuiKey_LeftBracket  = 591
+ImGuiKey_Backslash  = 592
+ImGuiKey_RightBracket  = 593
+ImGuiKey_GraveAccent  = 594
+ImGuiKey_CapsLock  = 595
+ImGuiKey_ScrollLock  = 596
+ImGuiKey_NumLock  = 597
+ImGuiKey_PrintScreen  = 598
+ImGuiKey_Pause  = 599
+ImGuiKey_Keypad0  = 600
+ImGuiKey_Keypad1  = 601
+ImGuiKey_Keypad2  = 602
+ImGuiKey_Keypad3  = 603
+ImGuiKey_Keypad4  = 604
+ImGuiKey_Keypad5  = 605
+ImGuiKey_Keypad6  = 606
+ImGuiKey_Keypad7  = 607
+ImGuiKey_Keypad8  = 608
+ImGuiKey_Keypad9  = 609
+ImGuiKey_KeypadDecimal  = 610
+ImGuiKey_KeypadDivide  = 611
+ImGuiKey_KeypadMultiply  = 612
+ImGuiKey_KeypadSubtract  = 613
+ImGuiKey_KeypadAdd  = 614
+ImGuiKey_KeypadEnter  = 615
+ImGuiKey_KeypadEqual  = 616
+ImGuiKey_GamepadStart  = 617
+ImGuiKey_GamepadBack  = 618
+ImGuiKey_GamepadFaceUp  = 619
+ImGuiKey_GamepadFaceDown  = 620
+ImGuiKey_GamepadFaceLeft  = 621
+ImGuiKey_GamepadFaceRight  = 622
+ImGuiKey_GamepadDpadUp  = 623
+ImGuiKey_GamepadDpadDown  = 624
+ImGuiKey_GamepadDpadLeft  = 625
+ImGuiKey_GamepadDpadRight  = 626
+ImGuiKey_GamepadL1  = 627
+ImGuiKey_GamepadR1  = 628
+ImGuiKey_GamepadL2  = 629
+ImGuiKey_GamepadR2  = 630
+ImGuiKey_GamepadL3  = 631
+ImGuiKey_GamepadR3  = 632
+ImGuiKey_GamepadLStickUp  = 633
+ImGuiKey_GamepadLStickDown  = 634
+ImGuiKey_GamepadLStickLeft  = 635
+ImGuiKey_GamepadLStickRight  = 636
+ImGuiKey_GamepadRStickUp  = 637
+ImGuiKey_GamepadRStickDown  = 638
+ImGuiKey_GamepadRStickLeft  = 639
+ImGuiKey_GamepadRStickRight  = 640
+ImGuiKey_ModCtrl  = 641
+ImGuiKey_ModShift  = 642
+ImGuiKey_ModAlt  = 643
+ImGuiKey_ModSuper  = 644
+ImGuiKey_COUNT  = 645
+ImGuiKey_NamedKey_BEGIN = 512
+ImGuiKey_NamedKey_END = ImGuiKey_COUNT
+ImGuiKey_NamedKey_COUNT = ImGuiKey_NamedKey_END - ImGuiKey_NamedKey_BEGIN
+ImGuiKey_KeysData_SIZE = ImGuiKey_COUNT
+ImGuiKey_KeysData_OFFSET = 0
+
+
+
+
+
+
+
+
+
+
+ImGuiModFlags_None = 0
+ImGuiModFlags_Ctrl = 1 << 0
+ImGuiModFlags_Shift = 1 << 1
+ImGuiModFlags_Alt = 1 << 2
+ImGuiModFlags_Super = 1 << 3
+
+
+
+
+ImGuiNavInput_Cancel  = 0
+ImGuiNavInput_Input  = 1
+ImGuiNavInput_Menu  = 2
+ImGuiNavInput_DpadLeft  = 3
+ImGuiNavInput_DpadRight  = 4
+ImGuiNavInput_DpadUp  = 5
+ImGuiNavInput_DpadDown  = 6
+ImGuiNavInput_LStickLeft  = 7
+ImGuiNavInput_LStickRight  = 8
+ImGuiNavInput_LStickUp  = 9
+ImGuiNavInput_LStickDown  = 10
+ImGuiNavInput_FocusPrev  = 11
+ImGuiNavInput_FocusNext  = 12
+ImGuiNavInput_TweakSlow  = 13
+ImGuiNavInput_TweakFast  = 14
+ImGuiNavInput_KeyLeft_  = 15
+ImGuiNavInput_KeyRight_  = 16
+ImGuiNavInput_KeyUp_  = 17
+ImGuiNavInput_KeyDown_  = 18
+ImGuiNavInput_COUNT     = 19
+
+
+
+
+ImGuiConfigFlags_None = 0
+ImGuiConfigFlags_NavEnableKeyboard = 1 << 0
+ImGuiConfigFlags_NavEnableGamepad = 1 << 1
+ImGuiConfigFlags_NavEnableSetMousePos = 1 << 2
+ImGuiConfigFlags_NavNoCaptureKeyboard = 1 << 3
+ImGuiConfigFlags_NoMouse = 1 << 4
+ImGuiConfigFlags_NoMouseCursorChange = 1 << 5
+ImGuiConfigFlags_DockingEnable = 1 << 6
+ImGuiConfigFlags_ViewportsEnable = 1 << 10
+ImGuiConfigFlags_DpiEnableScaleViewports= 1 << 14
+ImGuiConfigFlags_DpiEnableScaleFonts = 1 << 15
+ImGuiConfigFlags_IsSRGB = 1 << 20
+ImGuiConfigFlags_IsTouchScreen = 1 << 21
+
+
+
+ImGuiBackendFlags_None = 0
+ImGuiBackendFlags_HasGamepad = 1 << 0
+ImGuiBackendFlags_HasMouseCursors = 1 << 1
+ImGuiBackendFlags_HasSetMousePos = 1 << 2
+ImGuiBackendFlags_RendererHasVtxOffset = 1 << 3
+ImGuiBackendFlags_PlatformHasViewports = 1 << 10
+ImGuiBackendFlags_HasMouseHoveredViewport=1 << 11
+ImGuiBackendFlags_RendererHasViewports = 1 << 12
+
+
+
+
+
+ImGuiCol_Text  = 0
+ImGuiCol_TextDisabled  = 1
+ImGuiCol_WindowBg  = 2
+ImGuiCol_ChildBg  = 3
+ImGuiCol_PopupBg  = 4
+ImGuiCol_Border  = 5
+ImGuiCol_BorderShadow  = 6
+ImGuiCol_FrameBg  = 7
+ImGuiCol_FrameBgHovered  = 8
+ImGuiCol_FrameBgActive  = 9
+ImGuiCol_TitleBg  = 10
+ImGuiCol_TitleBgActive  = 11
+ImGuiCol_TitleBgCollapsed  = 12
+ImGuiCol_MenuBarBg  = 13
+ImGuiCol_ScrollbarBg  = 14
+ImGuiCol_ScrollbarGrab  = 15
+ImGuiCol_ScrollbarGrabHovered  = 16
+ImGuiCol_ScrollbarGrabActive  = 17
+ImGuiCol_CheckMark  = 18
+ImGuiCol_SliderGrab  = 19
+ImGuiCol_SliderGrabActive  = 20
+ImGuiCol_Button  = 21
+ImGuiCol_ButtonHovered  = 22
+ImGuiCol_ButtonActive  = 23
+ImGuiCol_Header  = 24
+ImGuiCol_HeaderHovered  = 25
+ImGuiCol_HeaderActive  = 26
+ImGuiCol_Separator  = 27
+ImGuiCol_SeparatorHovered  = 28
+ImGuiCol_SeparatorActive  = 29
+ImGuiCol_ResizeGrip  = 30
+ImGuiCol_ResizeGripHovered  = 31
+ImGuiCol_ResizeGripActive  = 32
+ImGuiCol_Tab  = 33
+ImGuiCol_TabHovered  = 34
+ImGuiCol_TabActive  = 35
+ImGuiCol_TabUnfocused  = 36
+ImGuiCol_TabUnfocusedActive  = 37
+ImGuiCol_DockingPreview  = 38
+ImGuiCol_DockingEmptyBg  = 39
+ImGuiCol_PlotLines  = 40
+ImGuiCol_PlotLinesHovered  = 41
+ImGuiCol_PlotHistogram  = 42
+ImGuiCol_PlotHistogramHovered  = 43
+ImGuiCol_TableHeaderBg  = 44
+ImGuiCol_TableBorderStrong  = 45
+ImGuiCol_TableBorderLight  = 46
+ImGuiCol_TableRowBg  = 47
+ImGuiCol_TableRowBgAlt  = 48
+ImGuiCol_TextSelectedBg  = 49
+ImGuiCol_DragDropTarget  = 50
+ImGuiCol_NavHighlight  = 51
+ImGuiCol_NavWindowingHighlight  = 52
+ImGuiCol_NavWindowingDimBg  = 53
+ImGuiCol_ModalWindowDimBg  = 54
+ImGuiCol_COUNT  = 55
+
+
+
+
+
+ImGuiStyleVar_Alpha  = 0
+ImGuiStyleVar_DisabledAlpha  = 1
+ImGuiStyleVar_WindowPadding  = 2
+ImGuiStyleVar_WindowRounding  = 3
+ImGuiStyleVar_WindowBorderSize  = 4
+ImGuiStyleVar_WindowMinSize  = 5
+ImGuiStyleVar_WindowTitleAlign  = 6
+ImGuiStyleVar_ChildRounding  = 7
+ImGuiStyleVar_ChildBorderSize  = 8
+ImGuiStyleVar_PopupRounding  = 9
+ImGuiStyleVar_PopupBorderSize  = 10
+ImGuiStyleVar_FramePadding  = 11
+ImGuiStyleVar_FrameRounding  = 12
+ImGuiStyleVar_FrameBorderSize  = 13
+ImGuiStyleVar_ItemSpacing  = 14
+ImGuiStyleVar_ItemInnerSpacing  = 15
+ImGuiStyleVar_IndentSpacing  = 16
+ImGuiStyleVar_CellPadding  = 17
+ImGuiStyleVar_ScrollbarSize  = 18
+ImGuiStyleVar_ScrollbarRounding  = 19
+ImGuiStyleVar_GrabMinSize  = 20
+ImGuiStyleVar_GrabRounding  = 21
+ImGuiStyleVar_TabRounding  = 22
+ImGuiStyleVar_ButtonTextAlign  = 23
+ImGuiStyleVar_SelectableTextAlign  = 24
+ImGuiStyleVar_COUNT  = 25
+
+
+
+ImGuiButtonFlags_None = 0
+ImGuiButtonFlags_MouseButtonLeft = 1 << 0
+ImGuiButtonFlags_MouseButtonRight = 1 << 1
+ImGuiButtonFlags_MouseButtonMiddle = 1 << 2
+ImGuiButtonFlags_MouseButtonMask_ = ImGuiButtonFlags_MouseButtonLeft | ImGuiButtonFlags_MouseButtonRight | ImGuiButtonFlags_MouseButtonMiddle
+ImGuiButtonFlags_MouseButtonDefault_ = ImGuiButtonFlags_MouseButtonLeft
+
+
+
+
+
+
+
+ImGuiColorEditFlags_None = 0
+ImGuiColorEditFlags_NoAlpha = 1 << 1
+ImGuiColorEditFlags_NoPicker = 1 << 2
+ImGuiColorEditFlags_NoOptions = 1 << 3
+ImGuiColorEditFlags_NoSmallPreview = 1 << 4
+ImGuiColorEditFlags_NoInputs = 1 << 5
+ImGuiColorEditFlags_NoTooltip = 1 << 6
+ImGuiColorEditFlags_NoLabel = 1 << 7
+ImGuiColorEditFlags_NoSidePreview = 1 << 8
+ImGuiColorEditFlags_NoDragDrop = 1 << 9
+ImGuiColorEditFlags_NoBorder = 1 << 10
+ImGuiColorEditFlags_AlphaBar = 1 << 16
+ImGuiColorEditFlags_AlphaPreview = 1 << 17
+ImGuiColorEditFlags_AlphaPreviewHalf= 1 << 18
+ImGuiColorEditFlags_HDR = 1 << 19
+ImGuiColorEditFlags_DisplayRGB = 1 << 20
+ImGuiColorEditFlags_DisplayHSV = 1 << 21
+ImGuiColorEditFlags_DisplayHex = 1 << 22
+ImGuiColorEditFlags_Uint8 = 1 << 23
+ImGuiColorEditFlags_Float = 1 << 24
+ImGuiColorEditFlags_PickerHueBar = 1 << 25
+ImGuiColorEditFlags_PickerHueWheel = 1 << 26
+ImGuiColorEditFlags_InputRGB = 1 << 27
+ImGuiColorEditFlags_InputHSV = 1 << 28
+ImGuiColorEditFlags_DefaultOptions_ = ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_PickerHueBar
+ImGuiColorEditFlags_DisplayMask_ = ImGuiColorEditFlags_DisplayRGB | ImGuiColorEditFlags_DisplayHSV | ImGuiColorEditFlags_DisplayHex
+ImGuiColorEditFlags_DataTypeMask_ = ImGuiColorEditFlags_Uint8 | ImGuiColorEditFlags_Float
+ImGuiColorEditFlags_PickerMask_ = ImGuiColorEditFlags_PickerHueWheel | ImGuiColorEditFlags_PickerHueBar
+ImGuiColorEditFlags_InputMask_ = ImGuiColorEditFlags_InputRGB | ImGuiColorEditFlags_InputHSV
+
+
+ImGuiSliderFlags_None = 0
+ImGuiSliderFlags_AlwaysClamp = 1 << 4
+ImGuiSliderFlags_Logarithmic = 1 << 5
+ImGuiSliderFlags_NoRoundToFormat = 1 << 6
+ImGuiSliderFlags_NoInput = 1 << 7
+ImGuiSliderFlags_InvalidMask_ = 0x7000000F
+
+
+
+ImGuiMouseButton_Left = 0
+ImGuiMouseButton_Right = 1
+ImGuiMouseButton_Middle = 2
+ImGuiMouseButton_COUNT = 5
+
+
+ImGuiMouseCursor_None = -1
+ImGuiMouseCursor_Arrow = 0
+ImGuiMouseCursor_TextInput  = 1
+ImGuiMouseCursor_ResizeAll  = 2
+ImGuiMouseCursor_ResizeNS  = 3
+ImGuiMouseCursor_ResizeEW  = 4
+ImGuiMouseCursor_ResizeNESW  = 5
+ImGuiMouseCursor_ResizeNWSE  = 6
+ImGuiMouseCursor_Hand  = 7
+ImGuiMouseCursor_NotAllowed  = 8
+ImGuiMouseCursor_COUNT  = 9
+
+
+
+ImGuiCond_None = 0
+ImGuiCond_Always = 1 << 0
+ImGuiCond_Once = 1 << 1
+ImGuiCond_FirstUseEver = 1 << 2
+ImGuiCond_Appearing = 1 << 3
+
+
+
+
+ImDrawFlags_None = 0
+ImDrawFlags_Closed = 1 << 0
+ImDrawFlags_RoundCornersTopLeft = 1 << 4
+ImDrawFlags_RoundCornersTopRight = 1 << 5
+ImDrawFlags_RoundCornersBottomLeft = 1 << 6
+ImDrawFlags_RoundCornersBottomRight = 1 << 7
+ImDrawFlags_RoundCornersNone = 1 << 8
+ImDrawFlags_RoundCornersTop = ImDrawFlags_RoundCornersTopLeft | ImDrawFlags_RoundCornersTopRight
+ImDrawFlags_RoundCornersBottom = ImDrawFlags_RoundCornersBottomLeft | ImDrawFlags_RoundCornersBottomRight
+ImDrawFlags_RoundCornersLeft = ImDrawFlags_RoundCornersBottomLeft | ImDrawFlags_RoundCornersTopLeft
+ImDrawFlags_RoundCornersRight = ImDrawFlags_RoundCornersBottomRight | ImDrawFlags_RoundCornersTopRight
+ImDrawFlags_RoundCornersAll = ImDrawFlags_RoundCornersTopLeft | ImDrawFlags_RoundCornersTopRight | ImDrawFlags_RoundCornersBottomLeft | ImDrawFlags_RoundCornersBottomRight
+ImDrawFlags_RoundCornersDefault_ = ImDrawFlags_RoundCornersAll
+ImDrawFlags_RoundCornersMask_ = ImDrawFlags_RoundCornersAll | ImDrawFlags_RoundCornersNone
+
+
+
+
+
+
+
+ImDrawListFlags_None = 0
+ImDrawListFlags_AntiAliasedLines = 1 << 0
+ImDrawListFlags_AntiAliasedLinesUseTex = 1 << 1
+ImDrawListFlags_AntiAliasedFill = 1 << 2
+ImDrawListFlags_AllowVtxOffset = 1 << 3
+
+
+
+ImFontAtlasFlags_None = 0
+ImFontAtlasFlags_NoPowerOfTwoHeight = 1 << 0
+ImFontAtlasFlags_NoMouseCursors = 1 << 1
+ImFontAtlasFlags_NoBakedLines = 1 << 2  
+
+
+ImGuiViewportFlags_None = 0
+ImGuiViewportFlags_IsPlatformWindow = 1 << 0
+ImGuiViewportFlags_IsPlatformMonitor = 1 << 1
+ImGuiViewportFlags_OwnedByApp = 1 << 2
+ImGuiViewportFlags_NoDecoration = 1 << 3
+ImGuiViewportFlags_NoTaskBarIcon = 1 << 4
+ImGuiViewportFlags_NoFocusOnAppearing = 1 << 5
+ImGuiViewportFlags_NoFocusOnClick = 1 << 6
+ImGuiViewportFlags_NoInputs = 1 << 7
+ImGuiViewportFlags_NoRendererClear = 1 << 8
+ImGuiViewportFlags_TopMost = 1 << 9
+ImGuiViewportFlags_Minimized = 1 << 10
+ImGuiViewportFlags_NoAutoMerge = 1 << 11
+ImGuiViewportFlags_CanHostOtherWindows = 1 << 12
+
+
+
+
+
+
+ImDrawCornerFlags_None = ImDrawFlags_RoundCornersNone
+ImDrawCornerFlags_TopLeft = ImDrawFlags_RoundCornersTopLeft
+ImDrawCornerFlags_TopRight = ImDrawFlags_RoundCornersTopRight
+ImDrawCornerFlags_BotLeft = ImDrawFlags_RoundCornersBottomLeft
+ImDrawCornerFlags_BotRight = ImDrawFlags_RoundCornersBottomRight
+ImDrawCornerFlags_All = ImDrawFlags_RoundCornersAll
+ImDrawCornerFlags_Top = ImDrawCornerFlags_TopLeft | ImDrawCornerFlags_TopRight
+ImDrawCornerFlags_Bot = ImDrawCornerFlags_BotLeft | ImDrawCornerFlags_BotRight
+ImDrawCornerFlags_Left = ImDrawCornerFlags_TopLeft | ImDrawCornerFlags_BotLeft
+ImDrawCornerFlags_Right = ImDrawCornerFlags_TopRight | ImDrawCornerFlags_BotRight
+
+
+
+
+
+
+ImGuiKeyModFlags_None = ImGuiModFlags_None
+ImGuiKeyModFlags_Ctrl = ImGuiModFlags_Ctrl
+ImGuiKeyModFlags_Shift = ImGuiModFlags_Shift
+ImGuiKeyModFlags_Alt = ImGuiModFlags_Alt
+ImGuiKeyModFlags_Super = ImGuiModFlags_Super

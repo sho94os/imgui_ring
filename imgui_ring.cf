@@ -1,0 +1,909 @@
+<ignorecpointertype>
+
+<nodllstartup>
+
+<funcstart>
+imgui
+</funcstart>
+
+
+<code>
+        #include "imgui.h"
+		#include "imgui_internal.h"
+		#include "imgui_impl_sdl.h"
+		#include "imgui_impl_sdlrenderer.h"
+
+        using namespace ImGui;
+        
+
+
+extern "C"
+{
+
+    #include "ring.h"
+
+    #include "stdlib.h"
+
+    RING_API void ringlib_init(RingState *pRingState);
+
+
+}
+
+
+
+
+typedef struct ImDrawChannel ImDrawChannel;
+typedef struct ImDrawCmd ImDrawCmd;
+typedef struct ImDrawData ImDrawData;
+typedef struct ImDrawList ImDrawList;
+typedef struct ImDrawListSharedData ImDrawListSharedData;
+typedef struct ImDrawListSplitter ImDrawListSplitter;
+typedef struct ImDrawVert ImDrawVert;
+typedef struct ImFont ImFont;
+typedef struct ImFontAtlas ImFontAtlas;
+typedef struct ImFontBuilderIO ImFontBuilderIO;
+typedef struct ImFontConfig ImFontConfig;
+typedef struct ImFontGlyph ImFontGlyph;
+typedef struct ImFontGlyphRangesBuilder ImFontGlyphRangesBuilder;
+typedef struct ImColor ImColor;
+typedef struct ImGuiContext ImGuiContext;
+typedef struct ImGuiIO ImGuiIO;
+typedef struct ImGuiInputTextCallbackData ImGuiInputTextCallbackData;
+typedef struct ImGuiKeyData ImGuiKeyData;
+typedef struct ImGuiListClipper ImGuiListClipper;
+typedef struct ImGuiOnceUponAFrame ImGuiOnceUponAFrame;
+typedef struct ImGuiPayload ImGuiPayload;
+typedef struct ImGuiPlatformIO ImGuiPlatformIO;
+typedef struct ImGuiPlatformMonitor ImGuiPlatformMonitor;
+typedef struct ImGuiPlatformImeData ImGuiPlatformImeData;
+typedef struct ImGuiSizeCallbackData ImGuiSizeCallbackData;
+typedef struct ImGuiStorage ImGuiStorage;
+typedef struct ImGuiStyle ImGuiStyle;
+typedef struct ImGuiTableSortSpecs ImGuiTableSortSpecs;
+typedef struct ImGuiTableColumnSortSpecs ImGuiTableColumnSortSpecs;
+typedef struct ImGuiTextBuffer ImGuiTextBuffer;
+typedef struct ImGuiTextFilter ImGuiTextFilter;
+typedef struct ImGuiViewport ImGuiViewport;
+typedef struct ImGuiWindowClass ImGuiWindowClass;
+typedef struct ImBitVector ImBitVector;
+typedef struct ImRect ImRect;
+typedef struct ImDrawDataBuilder ImDrawDataBuilder;
+typedef struct ImGuiColorMod ImGuiColorMod;
+typedef struct ImGuiContextHook ImGuiContextHook;
+typedef struct ImGuiDataTypeInfo ImGuiDataTypeInfo;
+typedef struct ImGuiDockContext ImGuiDockContext;
+typedef struct ImGuiDockRequest ImGuiDockRequest;
+typedef struct ImGuiDockNode ImGuiDockNode;
+typedef struct ImGuiDockNodeSettings ImGuiDockNodeSettings;
+typedef struct ImGuiGroupData ImGuiGroupData;
+typedef struct ImGuiInputTextState ImGuiInputTextState;
+typedef struct ImGuiLastItemData ImGuiLastItemData;
+typedef struct ImGuiMenuColumns ImGuiMenuColumns;
+typedef struct ImGuiNavItemData ImGuiNavItemData;
+typedef struct ImGuiMetricsConfig ImGuiMetricsConfig;
+typedef struct ImGuiNextWindowData ImGuiNextWindowData;
+typedef struct ImGuiNextItemData ImGuiNextItemData;
+typedef struct ImGuiOldColumnData ImGuiOldColumnData;
+typedef struct ImGuiOldColumns ImGuiOldColumns;
+typedef struct ImGuiPopupData ImGuiPopupData;
+typedef struct ImGuiSettingsHandler ImGuiSettingsHandler;
+typedef struct ImGuiStackSizes ImGuiStackSizes;
+typedef struct ImGuiStyleMod ImGuiStyleMod;
+typedef struct ImGuiTabBar ImGuiTabBar;
+typedef struct ImGuiTabItem ImGuiTabItem;
+typedef struct ImGuiTable ImGuiTable;
+typedef struct ImGuiTableColumn ImGuiTableColumn;
+typedef struct ImGuiTableInstanceData ImGuiTableInstanceData;
+typedef struct ImGuiTableTempData ImGuiTableTempData;
+typedef struct ImGuiTableSettings ImGuiTableSettings;
+typedef struct ImGuiTableColumnsSettings ImGuiTableColumnsSettings;
+typedef struct ImGuiWindow ImGuiWindow;
+typedef struct ImGuiWindowTempData ImGuiWindowTempData;
+typedef struct ImGuiWindowSettings ImGuiWindowSettings;
+
+struct ImDrawChannel;
+struct ImDrawCmd;
+struct ImDrawData;
+struct ImDrawList;
+struct ImDrawListSharedData;
+struct ImDrawListSplitter;
+struct ImDrawVert;
+struct ImFont;
+struct ImFontAtlas;
+struct ImFontBuilderIO;
+struct ImFontConfig;
+struct ImFontGlyph;
+struct ImFontGlyphRangesBuilder;
+struct ImColor;
+struct ImGuiContext;
+struct ImGuiIO;
+struct ImGuiInputTextCallbackData;
+struct ImGuiKeyData;
+struct ImGuiListClipper;
+struct ImGuiOnceUponAFrame;
+struct ImGuiPayload;
+struct ImGuiPlatformIO;
+struct ImGuiPlatformMonitor;
+struct ImGuiPlatformImeData;
+struct ImGuiSizeCallbackData;
+struct ImGuiStorage;
+struct ImGuiStyle;
+struct ImGuiTableSortSpecs;
+struct ImGuiTableColumnSortSpecs;
+struct ImGuiTextBuffer;
+struct ImGuiTextFilter;
+struct ImGuiViewport;
+struct ImGuiWindowClass;
+
+
+
+</code>
+
+
+
+
+<runcode>
+
+aNumberTypes + "float"
+
+aNumberTypes + "ImGuiCol"
+aNumberTypes + "ImGuiCond"
+aNumberTypes + "ImGuiDataType"
+aNumberTypes + "ImGuiDir"
+aNumberTypes + "ImGuiKey"
+aNumberTypes + "ImGuiNavInput"
+aNumberTypes + "ImGuiMouseButton"
+aNumberTypes + "ImGuiMouseCursor"
+aNumberTypes + "ImGuiSortDirection"
+aNumberTypes + "ImGuiStyleVar"
+aNumberTypes + "ImGuiTableBgTarget"
+aNumberTypes + "ImDrawFlags"
+aNumberTypes + "ImDrawListFlags"
+aNumberTypes + "ImFontAtlasFlags"
+aNumberTypes + "ImGuiBackendFlags"
+aNumberTypes + "ImGuiButtonFlags"
+aNumberTypes + "ImGuiColorEditFlags"
+aNumberTypes + "ImGuiConfigFlags"
+aNumberTypes + "ImGuiComboFlags"
+aNumberTypes + "ImGuiDockNodeFlags"
+aNumberTypes + "ImGuiDragDropFlags"
+aNumberTypes + "ImGuiFocusedFlags"
+aNumberTypes + "ImGuiHoveredFlags"
+aNumberTypes + "ImGuiInputTextFlags"
+aNumberTypes + "ImGuiModFlags"
+aNumberTypes + "ImGuiPopupFlags"
+aNumberTypes + "ImGuiSelectableFlags"
+aNumberTypes + "ImGuiSliderFlags"
+aNumberTypes + "ImGuiTabBarFlags"
+aNumberTypes + "ImGuiTabItemFlags"
+aNumberTypes + "ImGuiTableFlags"
+aNumberTypes + "ImGuiTableColumnFlags"
+aNumberTypes + "ImGuiTableRowFlags"
+aNumberTypes + "ImGuiTreeNodeFlags"
+aNumberTypes + "ImGuiViewportFlags"
+aNumberTypes + "ImGuiWindowFlags"
+
+
+aNumberTypes + "ImGuiID"
+aNumberTypes + "ImS8"
+aNumberTypes + "ImU8"
+aNumberTypes + "ImS16"
+aNumberTypes + "ImU16"
+aNumberTypes + "ImS32"
+aNumberTypes + "ImU32"
+aNumberTypes + "ImS64"
+aNumberTypes + "ImU64"
+
+aNumberTypes + "ImWchar16"
+aNumberTypes + "ImWchar32"
+
+
+
+aEnumTypes + "ImGuiWindowFlags_"
+aEnumTypes + "ImGuiInputTextFlags_"
+aEnumTypes + "ImGuiTreeNodeFlags_"
+aEnumTypes + "ImGuiPopupFlags_"
+aEnumTypes + "ImGuiSelectableFlags_"
+aEnumTypes + "ImGuiComboFlags_"
+aEnumTypes + "ImGuiTabBarFlags_"
+aEnumTypes + "ImGuiTabItemFlags_"
+aEnumTypes + "ImGuiTableFlags_"
+aEnumTypes + "ImGuiTableColumnFlags_"
+aEnumTypes + "ImGuiTableRowFlags_"
+aEnumTypes + "ImGuiTableBgTarget_"
+aEnumTypes + "ImGuiFocusedFlags_"
+aEnumTypes + "ImGuiHoveredFlags_"
+aEnumTypes + "ImGuiDockNodeFlags_"
+aEnumTypes + "ImGuiDragDropFlags_"
+aEnumTypes + "ImGuiDataType_"
+aEnumTypes + "ImGuiDir_"
+aEnumTypes + "ImGuiSortDirection_"
+aEnumTypes + "ImGuiKey_"
+aEnumTypes + "ImGuiModFlags_"
+aEnumTypes + "ImGuiNavInput_"
+aEnumTypes + "ImGuiConfigFlags_"
+aEnumTypes + "ImGuiBackendFlags_"
+aEnumTypes + "ImGuiCol_"
+aEnumTypes + "ImGuiStyleVar_"
+aEnumTypes + "ImGuiButtonFlags_"
+aEnumTypes + "ImGuiColorEditFlags_"
+aEnumTypes + "ImGuiSliderFlags_"
+aEnumTypes + "ImGuiMouseButton_"
+aEnumTypes + "ImGuiMouseCursor_"
+aEnumTypes + "ImGuiCond_"
+aEnumTypes + "ImDrawFlags_"
+aEnumTypes + "ImDrawListFlags_"
+aEnumTypes + "ImFontAtlasFlags_"
+aEnumTypes + "ImGuiViewportFlags_"
+aEnumTypes + "ImDrawCornerFlags_"
+aEnumTypes + "ImGuiKeyModFlags_"
+
+</runcode>
+
+
+
+
+
+<struct>
+
+
+ImVec2 {x,y}
+ImVec4 {x,y,z,w}
+
+
+ImGuiStyle {Alpha,DisabledAlpha,WindowPadding.x,WindowPadding.y,WindowRounding,WindowBorderSize,WindowMinSize.x,WindowMinSize.y,WindowTitleAlign.x,WindowTitleAlign.y,WindowMenuButtonPosition,ChildRounding,ChildBorderSize,PopupRounding,PopupBorderSize,FramePadding.x,FramePadding.y,FrameRounding,FrameBorderSize,ItemSpacing.x,ItemSpacing.y,ItemInnerSpacing.x,ItemInnerSpacing.y,CellPadding.x,CellPadding.y,TouchExtraPadding.x,TouchExtraPadding.y,IndentSpacing,ColumnsMinSpacing,ScrollbarSize,ScrollbarRounding,GrabMinSize,GrabRounding,LogSliderDeadzone,TabRounding,TabBorderSize,TabMinWidthForCloseButton,ColorButtonPosition,ButtonTextAlign.x,ButtonTextAlign.y,SelectableTextAlign.x,SelectableTextAlign.y,DisplayWindowPadding.x,DisplayWindowPadding.y,DisplaySafeAreaPadding.x,DisplaySafeAreaPadding.y,MouseCursorScale,AntiAliasedLines,AntiAliasedLinesUseTex,AntiAliasedFill,CurveTessellationTol,CircleTessellationMaxError}
+
+ImGuiKeyData {Down,DownDuration,DownDurationPrev,AnalogValue}
+
+ImGuiIO { ConfigFlags, BackendFlags, DisplaySize.x ,DisplaySize.y ,DeltaTime , IniSavingRate , const char *IniFilename , const char *LogFilename , MouseDoubleClickTime, MouseDoubleClickMaxDist , MouseDragThreshold, KeyRepeatDelay , KeyRepeatRate , void *UserData, ImFontAtlas *Fonts , FontGlobalScale , FontAllowUserScaling, ImFont *FontDefault, DisplayFramebufferScale.x ,DisplayFramebufferScale.y,ConfigDockingNoSplit,ConfigDockingWithShift,ConfigDockingAlwaysTabBar, ConfigDockingTransparentPayload,ConfigViewportsNoAutoMerge,ConfigViewportsNoTaskBarIcon,ConfigViewportsNoDecoration,ConfigViewportsNoDefaultParent, MouseDrawCursor, ConfigMacOSXBehaviors, ConfigInputTrickleEventQueue , ConfigInputTextCursorBlink , ConfigDragClickToInputText, ConfigWindowsResizeFromEdges, ConfigWindowsMoveFromTitleBarOnly,ConfigMemoryCompactTimer, const char *BackendPlatformName,const char *BackendRendererName,void *BackendPlatformUserData,void *BackendRendererUserData,void *BackendLanguageUserData}
+
+
+ImGuiInputTextCallbackData {EventFlag,Flags,void *UserData,EventChar,EventKey,char *Buf,BufTextLen,BufSize,BufDirty,CursorPos,SelectionStart,SelectionEnd}
+
+ImGuiSizeCallbackData {void *UserData,Pos.x,Pos.y,CurrentSize.x,CurrentSize.y,DesiredSize.x,DesiredSize.y}
+
+ImGuiWindowClass {ClassId,ParentViewportId,ViewportFlagsOverrideSet,ViewportFlagsOverrideClear,TabItemFlagsOverrideSet,DockNodeFlagsOverrideSet,DockingAlwaysTabBar,DockingAllowUnclassed}
+
+
+ImGuiPayload
+
+
+ImGuiTableColumnSortSpecs
+
+
+ImGuiTableSortSpecs {const ImGuiTableColumnSortSpecs *Specs,SpecsCount,SpecsDirty}
+
+ImGuiOnceUponAFrame
+ImGuiTextFilter
+ImGuiTextBuffer
+ImGuiStorage
+ImGuiListClipper
+ImColor
+ImDrawCmd
+ImDrawVert
+ImDrawCmdHeader
+ImDrawChannel
+ImDrawListSplitter
+ImDrawList
+ImDrawData
+ImFontConfig
+ImFontGlyph
+ImFontGlyphRangesBuilder
+ImFontAtlasCustomRect
+ImFontAtlas
+ImFont
+ImGuiViewport
+ImGuiPlatformIO
+ImGuiPlatformMonitor
+ImGuiPlatformImeData
+
+
+</struct>
+
+
+
+
+
+<register>
+
+const char   * Imgui_GetVersion(void)
+ImGuiIO& imgui_GetIO(void)
+ImGuiStyle& imgui_GetStyle(void)
+const ImVec4& GetStyleColorVec4(ImGuiCol idx)
+
+void ImFontAtlas_GetTexDataAsRGBA32(ImFontAtlas* self,unsigned char** out_pixels,int* out_width,int* out_height,int* out_bytes_per_pixel)
+
+bool imgui_Begin(const char *name, bool *p_open, ImGuiWindowFlags flags)
+void imgui_End(void)
+void EndMenu(void)
+
+</register>
+
+
+
+<code>
+
+RING_FUNC(ring_Imgui_GetVersion)
+{
+	if (RING_API_PARACOUNT != 0)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	char *cOut = (char *) ImGui::GetVersion();
+	if (cOut == NULL)
+	{
+		RING_API_RETSTRING("");
+	}
+	else
+	{
+		RING_API_RETSTRING(cOut);
+	}
+}
+
+
+RING_FUNC(ring_imgui_GetIO)
+{
+	if (RING_API_PARACOUNT != 0)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+
+	ImGuiIO *pValue;
+	pValue = &GetIO();
+	RING_API_RETCPOINTER(& GetIO(), "ImGuiIO");
+}
+
+RING_FUNC(ring_imgui_GetStyle)
+{
+	if (RING_API_PARACOUNT != 0)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+
+	ImGuiStyle *pValue;
+	pValue = & GetStyle();
+	RING_API_RETCPOINTER(& GetStyle(), "ImGuiStyle");
+}
+
+RING_FUNC(ring_GetStyleColorVec4)
+{
+	if (RING_API_PARACOUNT != 1)
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+	if (!RING_API_ISNUMBER(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	RING_API_RETCPOINTER( & GetStyleColorVec4((ImGuiCol)RING_API_GETNUMBER(1)), "ImVec4");
+}
+
+
+
+RING_FUNC(ring_ImFontAtlas_GetTexDataAsRGBA32)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	unsigned char *text_pixels = NULL;
+
+	ImFontAtlas *self = (ImFontAtlas *)RING_API_GETCPOINTER(1, "ImFontAtlas");
+
+	self->GetTexDataAsRGBA32((unsigned char **)RING_API_GETCPOINTER2POINTER(2, "unsigned char"), RING_API_GETINTPOINTER(3), RING_API_GETINTPOINTER(4), RING_API_GETINTPOINTER(5));
+
+	RING_API_ACCEPTINTVALUE(3);
+	RING_API_ACCEPTINTVALUE(4);
+	RING_API_ACCEPTINTVALUE(5);
+
+
+}
+
+
+RING_FUNC(ring_imgui_Begin)
+{
+	if (RING_API_PARACOUNT != 3)
+	{
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	if (!RING_API_ISSTRING(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(2))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISNUMBER(3))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	RING_API_RETNUMBER(Begin(RING_API_GETSTRING(1), (bool *)RING_API_GETCPOINTER(2, "bool"), (ImGuiWindowFlags)RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_imgui_End)
+{
+	if (RING_API_PARACOUNT != 0)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	End();
+}
+
+RING_FUNC(ring_EndMenu)
+{
+	if (RING_API_PARACOUNT != 0)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	ImGui::EndMenu();
+}
+
+
+</code>
+
+
+
+
+ImGuiContext * CreateContext(ImFontAtlas * shared_font_atlas )
+void           DestroyContext(ImGuiContext * ctx )
+ImGuiContext * GetCurrentContext(void)
+void           SetCurrentContext(ImGuiContext * ctx)
+
+void          NewFrame(void)
+void          EndFrame(void)
+void          Render(void)
+ImDrawData *  GetDrawData(void)
+
+void  ShowDemoWindow(bool *p_open)
+void ShowMetricsWindow(bool * p_open)
+void ShowDebugLogWindow(bool * p_open)
+void ShowStackToolWindow(bool * p_open)
+void ShowAboutWindow(bool * p_open)
+void ShowStyleEditor(ImGuiStyle * ref)
+bool ShowStyleSelector(const char * label)
+void ShowFontSelector(const char * label)
+void ShowUserGuide(void)
+
+
+ void StyleColorsDark(ImGuiStyle * dst)
+ void StyleColorsLight(ImGuiStyle *dst )
+ void StyleColorsClassic(ImGuiStyle * dst)
+
+bool          BeginChild(const char * str_id, const ImVec2 size , bool border , ImGuiWindowFlags flags)
+bool          BeginChild@2(ImGuiID id, const ImVec2 size , bool border , ImGuiWindowFlags flags )
+void          EndChild(void)
+
+
+bool          IsWindowAppearing(void)
+bool          IsWindowCollapsed(void)
+bool          IsWindowFocused(ImGuiFocusedFlags flags)
+bool          IsWindowHovered(ImGuiHoveredFlags flags)
+ImDrawList *   GetWindowDrawList(void)
+float         GetWindowDpiScale(void)
+ImVec2        GetWindowPos(void)
+ImVec2        GetWindowSize(void)
+float         GetWindowWidth(void)
+float         GetWindowHeight(void)
+ImGuiViewport * GetWindowViewport(void)
+
+
+void          SetNextWindowPos(const ImVec2 pos, ImGuiCond cond , const ImVec2 pivot )
+void          SetNextWindowSize(const ImVec2 size, ImGuiCond cond )
+void          SetNextWindowSizeConstraints(const ImVec2 size_min, const ImVec2 size_max, ImGuiSizeCallback custom_callback , void * custom_callback_data )
+void          SetNextWindowContentSize(const ImVec2 size)
+void          SetNextWindowCollapsed(bool collapsed, ImGuiCond cond )
+void          SetNextWindowFocus(void)
+void          SetNextWindowBgAlpha(float alpha)
+void          SetNextWindowViewport(ImGuiID viewport_id)
+void          SetWindowPos(const ImVec2 pos, ImGuiCond cond )
+void          SetWindowSize(const ImVec2 size, ImGuiCond cond )
+void          SetWindowCollapsed(bool collapsed, ImGuiCond cond )
+void          SetWindowFocus(void)
+
+void          SetWindowFontScale(float scale)
+void          SetWindowPos@2(const char * name, const ImVec2 pos, ImGuiCond cond)
+void          SetWindowSize@3(const char * name, const ImVec2 size, ImGuiCond cond )
+void          SetWindowCollapsed@3(const char * name, bool collapsed, ImGuiCond cond )
+void          SetWindowFocus@1(const char * name)
+
+ImVec2        GetContentRegionAvail(void)
+ImVec2        GetContentRegionMax(void)
+ImVec2        GetWindowContentRegionMin(void)
+ImVec2        GetWindowContentRegionMax(void)
+
+float         GetScrollX(void)
+float         GetScrollY(void)
+void          SetScrollX(float scroll_x)
+void          SetScrollY(float scroll_y)
+float         GetScrollMaxX(void)
+float         GetScrollMaxY(void)
+
+void          SetScrollHereX(float center_x_ratio )
+void          SetScrollHereY(float center_y_ratio )
+void          SetScrollFromPosX(float local_x, float center_x_ratio)
+void          SetScrollFromPosY(float local_y, float center_y_ratio )
+
+void          PushFont(ImFont * font)
+void          PopFont(void)
+
+void          PushStyleColor(ImGuiCol idx, ImU32 col)
+void          PushStyleColor@2(ImGuiCol idx, const ImVec4 col)
+void          PopStyleColor(int count )
+void          PushStyleVar(ImGuiStyleVar idx, float val)
+void          PushStyleVar@2(ImGuiStyleVar idx, const ImVec2 val)
+void          PopStyleVar(int count )
+void          PushAllowKeyboardFocus(bool allow_keyboard_focus)
+void          PopAllowKeyboardFocus(void)
+void          PushButtonRepeat(bool repeat)
+void          PopButtonRepeat(void)
+void          PushItemWidth(float item_width)
+void          PopItemWidth(void)
+void          SetNextItemWidth(float item_width)
+float         CalcItemWidth(void)
+void          PushTextWrapPos(float wrap_local_pos_x )
+void          PopTextWrapPos(void)
+
+
+
+ImFont *      GetFont(void)
+float         GetFontSize(void)
+ImVec2        GetFontTexUvWhitePixel(void)
+ImU32         GetColorU32(ImGuiCol idx, float alpha_mul )
+ImU32         GetColorU32@2(const ImVec4 col)
+ImU32         GetColorU32@3(ImU32 col)
+
+
+void          Separator(void)
+void          SameLine(float offset_from_start_x, float spacing)
+void          NewLine(void)
+void          Spacing(void)
+void          Dummy(const ImVec2 size)
+void          Indent(float indent_w )
+void          Unindent(float indent_w )
+void          BeginGroup(void)
+void          EndGroup(void)
+ImVec2        GetCursorPos(void)
+float         GetCursorPosX(void)
+float         GetCursorPosY(void)
+void          SetCursorPos(const ImVec2 local_pos)
+void          SetCursorPosX(float local_x)
+void          SetCursorPosY(float local_y)
+ImVec2        GetCursorStartPos(void)
+ImVec2        GetCursorScreenPos(void)
+void          SetCursorScreenPos(const ImVec2 pos)
+void          AlignTextToFramePadding(void)
+float         GetTextLineHeight(void)
+float         GetTextLineHeightWithSpacing(void)
+float         GetFrameHeight(void)
+float         GetFrameHeightWithSpacing(void)
+void          PushID(const char * str_id)
+void          PushID@2(const char * str_id_begin, const char * str_id_end)
+void          PushID@3(const void * ptr_id)
+void          PushID@4(int int_id)
+void          PopID(void)
+ImGuiID       GetID(const char * str_id)
+ImGuiID       GetID@2(const char * str_id_begin, const char * str_id_end)
+ImGuiID       GetID@3(const void * ptr_id)
+void          TextUnformatted(const char * text, const char * text_end )
+
+bool          Button(const char * label, const ImVec2 size )
+bool          SmallButton(const char * label)
+bool          InvisibleButton(const char * str_id, const ImVec2 size, ImGuiButtonFlags flags )
+bool          ArrowButton(const char * str_id, ImGuiDir dir)
+
+void          Image(ImTextureID user_texture_id, const ImVec2 size, const ImVec2 uv0 , const ImVec2 uv1 , const ImVec4 tintCol , const ImVec4 borderCol )
+bool          ImageButton(ImTextureID user_texture_id, const ImVec2 size, const ImVec2 uv0 ,  const ImVec2 uv1 , int frame_padding , const ImVec4 bg_col , const ImVec4 tint_col )
+bool          Checkbox(const char * label, bool * v)
+bool          CheckboxFlags(const char * label, int * flags, int flags_value)
+bool          CheckboxFlags@2(const char * label, unsigned int * flags, unsigned int flags_value)
+bool          RadioButton(const char * label, bool active)
+bool          RadioButton@2(const char * label, int * v, int v_button)
+void          ProgressBar(float fraction, const ImVec2 size_arg , const char * overlay )
+void          Bullet(void)
+bool          BeginCombo(const char * label, const char * preview_value, ImGuiComboFlags flags )
+void          EndCombo(void)
+
+
+
+
+
+
+bool          Combo(const char * label, int * item, const char ** items, int items, int items )
+
+
+
+
+
+bool  SliderFloat(const char *label, float *v, float v_min, float v_max, const char *format , ImGuiSliderFlags flags )
+
+
+
+bool          SliderScalar(const char * label, ImGuiDataType data_type, void * p_data, const void * p_min, const void * p_max, const char * format , ImGuiSliderFlags flags)
+bool          SliderScalarN(const char * label, ImGuiDataType data_type, void * p_data, int components, const void * p_min, const void * p_max, const char * format , ImGuiSliderFlags flags )
+bool          VSliderFloat(const char * label, const ImVec2 size, float * v, float v_min, float v_max, const char * f, ImGuiSliderFlags flags )
+
+bool          VSliderInt(const char * label, const ImVec2 size, int * v, int v_min, int v_max, const char * f, ImGuiSliderFlags flags )
+bool          VSliderScalar(const char * label, const ImVec2 size, ImGuiDataType data_type, void * p_data, const void * p_min, const void * p_max, const char * f , ImGuiSliderFlags flags )
+bool          InputText(const char * label, char * buf, size_t buf_size, ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+
+bool          InputTextMultiline(const char * label, char * buf, size_t buf_size, const ImVec2 size , ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+bool          InputTextWithHint(const char * label, const char * hint, char * buf, size_t buf_size, ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+bool          InputFloat(const char * label, float * v, float step , float step_fast , const char * formattt, ImGuiInputTextFlags flags )
+
+
+bool          InputInt(const char * label, int * v, int step , int step_fast , ImGuiInputTextFlags flags )
+bool          InputDouble(const char * label, double *varDou, double step , double stepfast , const char * formatttt, ImGuiInputTextFlags flags )
+
+bool          InputScalar(const char * label, ImGuiDataType data_type, void * p_data, const void * p_step , const void * p_step_fast , const char * format , ImGuiInputTextFlags flags )
+bool          InputScalarN(const char * label, ImGuiDataType data_type, void * p_data, int components, const void * p_step, const void * p_step_fast, const char * formattt, ImGuiInputTextFlags flags )
+
+bool          ColorButton(const char * desc_id, const ImVec4 col, ImGuiColorEditFlags flags , const ImVec2 size )
+void          SetColorEditOptions(ImGuiColorEditFlags flags)
+
+
+void          TreePush(const char * str_id)
+void          TreePush@2(const void * ptr_id )
+void          TreePop(void)
+float         GetTreeNodeToLabelSpacing(void)
+bool          CollapsingHeader(const char * label, ImGuiTreeNodeFlags flags )
+bool          CollapsingHeader@2(const char * label, bool * p_visible, ImGuiTreeNodeFlags flags )
+void          SetNextItemOpen(bool is_open, ImGuiCond cond )
+bool          Selectable(const char * label, bool selected, ImGuiSelectableFlags flags , const ImVec2 size )
+bool          Selectable@2(const char * label, bool * p_selected, ImGuiSelectableFlags flags , const ImVec2 size )
+bool          BeginListBox(const char * label, const ImVec2 size )
+void          EndListBox(void)
+
+
+
+void          Value(const char * prefix, bool b)
+
+void          Value@2(const char * prefix, int v)
+void          Value@3(const char * prefix, unsigned int v)
+void          Value@4(const char * prefix, float v, const char * float_format )
+bool          BeginMenuBar(void)
+void          EndMenuBar(void)
+bool          BeginMainMenuBar(void)
+void          EndMainMenuBar(void)
+bool          BeginMenu(const char * label, bool enabled )
+
+bool          MenuItem(const char * label, const char * shortcut , bool selected , bool enabled )
+bool          MenuItem@2(const char * label, const char * shortcut, bool * p_selected, bool enabled )
+void          BeginTooltip(void)
+void          EndTooltip(void)
+
+
+bool          BeginPopup(const char * str_id, ImGuiWindowFlags flags )
+bool          BeginPopupModal(const char * name, bool * p_open , ImGuiWindowFlags flags )
+void          EndPopup(void)
+void          OpenPopup(const char * str_id, ImGuiPopupFlags popup_flags )
+void          OpenPopup@2(ImGuiID id, ImGuiPopupFlags popup_flags )
+void          OpenPopupOnItemClick(const char * str_id , ImGuiPopupFlags popup_flags )
+void          CloseCurrentPopup(void)
+bool          BeginPopupContextItem(const char * str_id , ImGuiPopupFlags popup_flags )
+bool          BeginPopupContextWindow(const char * str_id , ImGuiPopupFlags popup_flags )
+bool          BeginPopupContextVoid(const char * str_id , ImGuiPopupFlags popup_flags )
+bool          IsPopupOpen(const char * str_id, ImGuiPopupFlags flags )
+bool          BeginTable(const char * str_id, int column, ImGuiTableFlags flags , const ImVec2 outer_size , float inner_width )
+void          EndTable(void)
+void          TableNextRow(ImGuiTableRowFlags row_flags , float min_row_height )
+bool          TableNextColumn(void)
+bool          TableSetColumnIndex(int column_n)
+void          TableSetupColumn(const char * label, ImGuiTableColumnFlags flags , float init_width_or_weight , ImGuiID user_id )
+void          TableSetupScrollFreeze(int cols, int rows)
+void          TableHeadersRow(void)
+void          TableHeader(const char * label)
+ImGuiTableSortSpecs *  TableGetSortSpecs(void)
+int                   TableGetColumnCount(void)
+int                   TableGetColumnIndex(void)
+int                   TableGetRowIndex(void)
+const char *           TableGetColumnName(int column_n )
+ImGuiTableColumnFlags TableGetColumnFlags(int column_n )
+void                  TableSetColumnEnabled(int column_n, bool v)
+void                  TableSetBgColor(ImGuiTableBgTarget target, ImU32 color, int column_n )
+void          Columns(int count , const char * id , bool border )
+void          NextColumn(void)
+int           GetColumnIndex(void)
+float         GetColumnWidth(int column_index )
+void          SetColumnWidth(int column_index, float width)
+float         GetColumnOffset(int column_index )
+void          SetColumnOffset(int column_index, float offset_x)
+int           GetColumnsCount(void)
+bool          BeginTabBar(const char * str_id, ImGuiTabBarFlags flags )
+void          EndTabBar(void)
+bool          BeginTabItem(const char * label, bool * p_open , ImGuiTabItemFlags flags )
+void          EndTabItem(void)
+bool          TabItemButton(const char * label, ImGuiTabItemFlags flags )
+void          SetTabItemClosed(const char * tab_or_docked_window_label)
+ImGuiID       DockSpace(ImGuiID id, const ImVec2 size , ImGuiDockNodeFlags flags , const ImGuiWindowClass * window_class )
+ImGuiID       DockSpaceOverViewport(const ImGuiViewport * viewport , ImGuiDockNodeFlags flags , const ImGuiWindowClass * window_class )
+void          SetNextWindowDockID(ImGuiID dock_id, ImGuiCond cond )
+void          SetNextWindowClass(const ImGuiWindowClass * window_class)
+ImGuiID       GetWindowDockID(void)
+bool          IsWindowDocked(void)
+void          LogToTTY(int auto_open_depth )
+void          LogToFile(int auto_open_depth , const char * filename )
+void          LogToClipboard(int auto_open_depth )
+void          LogFinish(void)
+void          LogButtons(void)
+
+
+
+bool          BeginDragDropSource(ImGuiDragDropFlags flags )
+bool          SetDragDropPayload(const char * type, const void * data, size_t sz, ImGuiCond cond )
+void          EndDragDropSource(void)
+bool                  BeginDragDropTarget(void)
+const ImGuiPayload *   AcceptDragDropPayload(const char * type, ImGuiDragDropFlags flags )
+void                  EndDragDropTarget(void)
+const ImGuiPayload *   GetDragDropPayload(void)
+void          BeginDisabled(bool disabled )
+void          EndDisabled(void)
+void          PushClipRect(const ImVec2 clip_rect_min, const ImVec2 clip_rect_max, bool intersect_with_current_clip_rect)
+void          PopClipRect(void)
+void          SetItemDefaultFocus(void)
+void          SetKeyboardFocusHere(int offset )
+bool          IsItemHovered(ImGuiHoveredFlags flags )
+bool          IsItemActive(void)
+bool          IsItemFocused(void)
+bool          IsItemClicked(ImGuiMouseButton mouse_button )
+bool          IsItemVisible(void)
+bool          IsItemEdited(void)
+bool          IsItemActivated(void)
+bool          IsItemDeactivated(void)
+bool          IsItemDeactivatedAfterEdit(void)
+bool          IsItemToggledOpen(void)
+bool          IsAnyItemHovered(void)
+bool          IsAnyItemActive(void)
+bool          IsAnyItemFocused(void)
+ImVec2        GetItemRectMin(void)
+ImVec2        GetItemRectMax(void)
+ImVec2        GetItemRectSize(void)
+
+
+
+void          SetItemAllowOverlap(void)
+ImGuiViewport * GetMainViewport(void)
+ImDrawList *   GetBackgroundDrawList(void)
+ImDrawList *   GetForegroundDrawList(void)
+ImDrawList *   GetBackgroundDrawList@1(ImGuiViewport * viewport)
+ImDrawList *   GetForegroundDrawList@1(ImGuiViewport * viewport)
+bool          IsRectVisible(const ImVec2 size)
+bool          IsRectVisible@1(const ImVec2 rect_min, const ImVec2 rect_max)
+double        GetTime(void)
+
+
+
+int           GetFrameCount(void)
+ImDrawListSharedData * GetDrawListSharedData(void)
+const char *   GetStyleColorName(ImGuiCol idx)
+void          SetStateStorage(ImGuiStorage * storage)
+ImGuiStorage * GetStateStorage(void)
+bool          BeginChildFrame(ImGuiID id, const ImVec2 size, ImGuiWindowFlags flags )
+void          EndChildFrame(void)
+ImVec2        CalcTextSize(const char * text, const char * text_end , bool hide_text_after_double_hash , float wrap_width )
+ImVec4        ColorConvertU32ToFloat4(ImU32 in)
+ImU32         ColorConvertFloat4ToU32(const ImVec4 in)
+
+<comment>
+void          ColorConvertRGBtoHSV(float r, float g, float b, float out_h, float out_s, float out_v)
+void          ColorConvertHSVtoRGB(float h, float s, float v, float out_r, float out_g, float out_b)
+</comment>
+
+bool          IsKeyDown(ImGuiKey key)
+bool          IsKeyPressed(ImGuiKey key, bool repeat )
+bool          IsKeyReleased(ImGuiKey key)
+int           GetKeyPressedAmount(ImGuiKey key, float repeat_delay, float rate)
+const char *   GetKeyName(ImGuiKey key)
+void          CaptureKeyboardFromApp(bool want_capture_keyboard_value )
+bool          IsMouseDown(ImGuiMouseButton button)
+bool          IsMouseClicked(ImGuiMouseButton button, bool repeat )
+bool          IsMouseReleased(ImGuiMouseButton button)
+bool          IsMouseDoubleClicked(ImGuiMouseButton button)
+int           GetMouseClickedCount(ImGuiMouseButton button)
+bool          IsMouseHoveringRect(const ImVec2 r_min, const ImVec2 r_max, bool clip )
+bool          IsMousePosValid(const ImVec2 * mouse_pos )
+bool          IsAnyMouseDown(void)
+ImVec2        GetMousePos(void)
+ImVec2        GetMousePosOnOpeningCurrentPopup(void)
+bool          IsMouseDragging(ImGuiMouseButton button, float lock_threshold )
+ImVec2        GetMouseDragDelta(ImGuiMouseButton button , float lock_threshold )
+void          ResetMouseDragDelta(ImGuiMouseButton button )
+ImGuiMouseCursor GetMouseCursor(void)
+void          SetMouseCursor(ImGuiMouseCursor cursor_type)
+void          CaptureMouseFromApp(bool want_capture_mouse_value )
+const char *   GetClipboardText(void)
+void          SetClipboardText(const char * text)
+void          LoadIniSettingsFromDisk(const char * ini_filename)
+void          LoadIniSettingsFromMemory(const char * ini_data, size_t ini_size=0)
+void          SaveIniSettingsToDisk(const char * ini_filename)
+const char *   SaveIniSettingsToMemory(size_t * out_ini_size )
+bool          DebugCheckVersionAndDataLayout(const char * version_str, size_t sz_io, size_t sz_style, size_t sz_vec2, size_t sz_vec4, size_t sz_drawvert, size_t sz_drawidx)
+void          SetAllocatorFunctions(ImGuiMemAllocFunc alloc_func, ImGuiMemFreeFunc free_func, void * user_data )
+void          GetAllocatorFunctions(ImGuiMemAllocFunc * p_alloc_func, ImGuiMemFreeFunc * p_free_func, void ** p_user_data)
+void *         MemAlloc(size_t size)
+void          MemFree(void * ptr)
+ImGuiPlatformIO  GetPlatformIO(void)
+void              UpdatePlatformWindows(void)
+void              RenderPlatformWindowsDefault(void * platform_render_arg , void * renderer_render_arg )
+void              DestroyPlatformWindows(void)
+ImGuiViewport *    FindViewportByID(ImGuiID id)
+ImGuiViewport *    FindViewportByPlatformHandle(void * platform_handle)
+
+void      Text(const char * fmt) 
+void      TextColored(const ImVec4 col, const char * fmt)
+void      TextDisabled(const char * fmt)
+void      TextWrapped(const char * fmt) 
+void      LabelText(const char * label, const char * fmt)
+void      BulletText(const char * fmt)
+void      LogText(const char * fmt)
+void      SetTooltip(const char * fmt)
+bool      TreeNode(const char * str_id, const char * fmt)
+bool      TreeNode@2(const void * ptr_id, const char * fmt) 
+bool      TreeNodeEx(const char * str_id, ImGuiTreeNodeFlags flags, const char * fmt)
+bool      TreeNodeEx@2(const void * ptr_id, ImGuiTreeNodeFlags flags, const char * fmt)
+
+
+
+
+
+
+
+
+
+
+ bool     ImGui_ImplSDLRenderer_Init(SDL_Renderer *renderer)
+ void     ImGui_ImplSDLRenderer_Shutdown(void)
+ void     ImGui_ImplSDLRenderer_NewFrame(void)
+ void     ImGui_ImplSDLRenderer_RenderDrawData(ImDrawData *draw_data)
+
+ bool     ImGui_ImplSDLRenderer_CreateFontsTexture(void)
+ void     ImGui_ImplSDLRenderer_DestroyFontsTexture(void)
+ bool     ImGui_ImplSDLRenderer_CreateDeviceObjects(void)
+ void     ImGui_ImplSDLRenderer_DestroyDeviceObjects(void)
+
+
+
+ bool     ImGui_ImplSDL2_InitForOpenGL(SDL_Window *window, void *sdl_gl_context)
+ bool     ImGui_ImplSDL2_InitForVulkan(SDL_Window *window)
+ bool     ImGui_ImplSDL2_InitForD3D(SDL_Window *window)
+ bool     ImGui_ImplSDL2_InitForMetal(SDL_Window *window)
+ bool     ImGui_ImplSDL2_InitForSDLRenderer(SDL_Window *window, SDL_Renderer *renderer)
+ void     ImGui_ImplSDL2_Shutdown(void)
+ void     ImGui_ImplSDL2_NewFrame(void)
+ bool     ImGui_ImplSDL2_ProcessEvent(const SDL_Event *event)

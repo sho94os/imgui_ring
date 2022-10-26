@@ -1,0 +1,3 @@
+C:/Users/pc/Desktop/New folder/build/CMakeFiles/imgu_ring.dir
+C:/Users/pc/Desktop/New folder/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/pc/Desktop/New folder/build/CMakeFiles/ZERO_CHECK.dir
