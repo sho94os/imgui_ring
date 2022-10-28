@@ -13,8 +13,8 @@ func GPData vData
 	ok
 	return vData
 
-func TextColored  x,y
+func ig_TextColored  x,y
     return imgui_TextColored(GPData(x), GPData(y)) 
 
-func button  x,y
+func ig_button  x,y
     return imgui_button(GPData(x), GPData(y)) 

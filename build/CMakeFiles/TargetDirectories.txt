@@ -1,3 +1,3 @@
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/imgu_ring.dir
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/ZERO_CHECK.dir
+I:/Git_imgui_r/build/CMakeFiles/imgu_ring.dir
+I:/Git_imgui_r/build/CMakeFiles/ALL_BUILD.dir
+I:/Git_imgui_r/build/CMakeFiles/ZERO_CHECK.dir

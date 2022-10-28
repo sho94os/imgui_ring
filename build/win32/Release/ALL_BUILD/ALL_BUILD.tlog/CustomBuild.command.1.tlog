@@ -1,6 +1,6 @@
-^C:\USERS\PC\DESKTOP\NEW FOLDER\CMAKELISTS.TXT
+^I:\GIT_IMGUI_R\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/pc/Desktop/New folder" "-BC:/Users/pc/Desktop/New folder/build" --check-stamp-file "C:/Users/pc/Desktop/New folder/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-file I:/Git_imgui_r/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

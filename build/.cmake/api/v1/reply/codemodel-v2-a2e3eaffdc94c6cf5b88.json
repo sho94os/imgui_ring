@@ -50,14 +50,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Debug-ec611c6293b38599de3d.json",
+					"jsonFile" : "target-ZERO_CHECK-Debug-3f3b7597b0bf1ff21418.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "imgu_ring::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-imgu_ring-Debug-712537fe6609083c1046.json",
+					"jsonFile" : "target-imgu_ring-Debug-9912cd49513a1a4cee16.json",
 					"name" : "imgu_ring",
 					"projectIndex" : 0
 				}
@@ -112,14 +112,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Release-ec611c6293b38599de3d.json",
+					"jsonFile" : "target-ZERO_CHECK-Release-3f3b7597b0bf1ff21418.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "imgu_ring::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-imgu_ring-Release-193289d69b04123b7a9a.json",
+					"jsonFile" : "target-imgu_ring-Release-c82b36e2aac46ed20652.json",
 					"name" : "imgu_ring",
 					"projectIndex" : 0
 				}
@@ -174,14 +174,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-ec611c6293b38599de3d.json",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-3f3b7597b0bf1ff21418.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "imgu_ring::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-imgu_ring-MinSizeRel-fdc877a6f3e6ddfc99d8.json",
+					"jsonFile" : "target-imgu_ring-MinSizeRel-13d0a037edff28afe409.json",
 					"name" : "imgu_ring",
 					"projectIndex" : 0
 				}
@@ -236,14 +236,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-ec611c6293b38599de3d.json",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-3f3b7597b0bf1ff21418.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "imgu_ring::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-imgu_ring-RelWithDebInfo-93caccaf003c85e0b1db.json",
+					"jsonFile" : "target-imgu_ring-RelWithDebInfo-ed960fb23970dc7d5353.json",
 					"name" : "imgu_ring",
 					"projectIndex" : 0
 				}
@@ -253,8 +253,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/pc/Desktop/New folder/build",
-		"source" : "C:/Users/pc/Desktop/New folder"
+		"build" : "I:/Git_imgui_r/build",
+		"source" : "I:/Git_imgui_r"
 	},
 	"version" : 
 	{

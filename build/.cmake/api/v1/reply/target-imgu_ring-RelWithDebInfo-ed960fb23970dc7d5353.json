@@ -2,13 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/imgu_ring.dll"
+			"path" : "RelWithDebInfo/imgu_ring.dll"
 		},
 		{
-			"path" : "Debug/imgu_ring.lib"
+			"path" : "RelWithDebInfo/imgu_ring.lib"
 		},
 		{
-			"path" : "Debug/imgu_ring.pdb"
+			"path" : "RelWithDebInfo/imgu_ring.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -62,7 +62,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG"
 				}
 			],
 			"defines" : 
@@ -79,7 +79,7 @@
 				},
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/pc/Desktop/New folder/imgui"
+					"path" : "I:/Git_imgui_r/imgui"
 				},
 				{
 					"backtrace" : 4,

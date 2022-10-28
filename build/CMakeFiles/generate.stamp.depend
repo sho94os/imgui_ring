@@ -16,8 +16,8 @@ C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC-CXX.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows-MSVC.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/Windows.cmake
 C:/Program Files/CMake/share/cmake-3.23/Modules/Platform/WindowsPaths.cmake
-C:/Users/pc/Desktop/New folder/CMakeLists.txt
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/3.23.1/CMakeCCompiler.cmake
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/3.23.1/CMakeCXXCompiler.cmake
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/3.23.1/CMakeRCCompiler.cmake
-C:/Users/pc/Desktop/New folder/build/CMakeFiles/3.23.1/CMakeSystem.cmake
+I:/Git_imgui_r/CMakeLists.txt
+I:/Git_imgui_r/build/CMakeFiles/3.23.1/CMakeCCompiler.cmake
+I:/Git_imgui_r/build/CMakeFiles/3.23.1/CMakeCXXCompiler.cmake
+I:/Git_imgui_r/build/CMakeFiles/3.23.1/CMakeRCCompiler.cmake
+I:/Git_imgui_r/build/CMakeFiles/3.23.1/CMakeSystem.cmake

@@ -6184,6 +6184,10 @@ RING_FUNC(ring_ImFontAtlas_GetTexDataAsRGBA32)
 
 RING_FUNC(ring_imgui_Begin)
 {
+
+	bool *p1;
+
+
 	if (RING_API_PARACOUNT != 3)
 	{
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -6195,17 +6199,21 @@ RING_FUNC(ring_imgui_Begin)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	if (!RING_API_ISCPOINTER(2))
-	{
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
-		return;
+		return ;
 	}
 	if (!RING_API_ISNUMBER(3))
 	{
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	RING_API_RETNUMBER(Begin(RING_API_GETSTRING(1), (bool *)RING_API_GETCPOINTER(2, "bool"), (ImGuiWindowFlags)RING_API_GETNUMBER(3)));
+
+	p1 = (bool *)RING_API_GETINTPOINTER(2);
+
+	RING_API_RETNUMBER(Begin(RING_API_GETSTRING(1), p1 , (ImGuiWindowFlags)RING_API_GETNUMBER(3)));
+
+	RING_API_ACCEPTINTVALUE(2) ;
 }
 
 
@@ -6228,6 +6236,97 @@ RING_FUNC(ring_EndMenu)
 		return;
 	}
 	ImGui::EndMenu();
+}
+
+
+
+
+RING_FUNC(ring_SliderInt)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(SliderInt(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5), (ImGuiSliderFlags ) RING_API_GETNUMBER(6)));
+	RING_API_ACCEPTINTVALUE(2) ;
+}
+
+
+
+
+bool SliderDouble(const char *label, double *v, double v_min, double v_max, const char *format, ImGuiSliderFlags flags)
+{
+
+	return SliderScalar(label, ImGuiDataType_Double, v, &v_min, &v_max, format, flags);
+}
+
+RING_FUNC(ring_SliderDouble)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+/*
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+*/	
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	double * d_ptr = (double *)RING_API_GETDOUBLEPOINTER(2);
+
+
+
+	RING_API_RETNUMBER(SliderDouble(RING_API_GETSTRING(1), d_ptr  , (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5), (ImGuiSliderFlags ) RING_API_GETNUMBER(6)));
+
+	// RING_API_ACCEPTINTVALUE(2);  //dont use this line with double ist will make value null
 }
 
 
@@ -8314,41 +8413,6 @@ RING_FUNC(ring_Combo)
 }
 
 
-RING_FUNC(ring_SliderFloat)
-{
-	if ( RING_API_PARACOUNT != 6 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(6) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(SliderFloat(RING_API_GETSTRING(1),(float *) RING_API_GETCPOINTER(2,"float"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5), (ImGuiSliderFlags ) RING_API_GETNUMBER(6)));
-}
-
-
 RING_FUNC(ring_SliderScalar)
 {
 	if ( RING_API_PARACOUNT != 7 ) {
@@ -8428,43 +8492,6 @@ RING_FUNC(ring_SliderScalarN)
 		return ;
 	}
 	RING_API_RETNUMBER(SliderScalarN(RING_API_GETSTRING(1), (ImGuiDataType ) RING_API_GETNUMBER(2),(void *) RING_API_GETCPOINTER(3,"void"), (int ) RING_API_GETNUMBER(4),(void *) RING_API_GETCPOINTER(5,"void"),(void *) RING_API_GETCPOINTER(6,"void"),RING_API_GETSTRING(7), (ImGuiSliderFlags ) RING_API_GETNUMBER(8)));
-}
-
-
-RING_FUNC(ring_VSliderFloat)
-{
-	if ( RING_API_PARACOUNT != 7 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(6) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(7) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(VSliderFloat(RING_API_GETSTRING(1),* (const ImVec2  *) RING_API_GETCPOINTER(2,"const ImVec2"),(float *) RING_API_GETCPOINTER(3,"float"), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),RING_API_GETSTRING(6), (ImGuiSliderFlags ) RING_API_GETNUMBER(7)));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"ImVec2"));
 }
 
 
@@ -11888,6 +11915,8 @@ RING_LIBINIT
 	RING_API_REGISTER("imgui_begin",ring_imgui_Begin);
 	RING_API_REGISTER("imgui_end",ring_imgui_End);
 	RING_API_REGISTER("imgui_endmenu",ring_EndMenu);
+	RING_API_REGISTER("imgui_sliderint",ring_SliderInt);
+	RING_API_REGISTER("imgui_sliderdouble",ring_SliderDouble);
 	RING_API_REGISTER("imgui_createcontext",ring_CreateContext);
 	RING_API_REGISTER("imgui_destroycontext",ring_DestroyContext);
 	RING_API_REGISTER("imgui_getcurrentcontext",ring_GetCurrentContext);
@@ -12025,10 +12054,8 @@ RING_LIBINIT
 	RING_API_REGISTER("imgui_begincombo",ring_BeginCombo);
 	RING_API_REGISTER("imgui_endcombo",ring_EndCombo);
 	RING_API_REGISTER("imgui_combo",ring_Combo);
-	RING_API_REGISTER("imgui_sliderfloat",ring_SliderFloat);
 	RING_API_REGISTER("imgui_sliderscalar",ring_SliderScalar);
 	RING_API_REGISTER("imgui_sliderscalarn",ring_SliderScalarN);
-	RING_API_REGISTER("imgui_vsliderfloat",ring_VSliderFloat);
 	RING_API_REGISTER("imgui_vsliderint",ring_VSliderInt);
 	RING_API_REGISTER("imgui_vsliderscalar",ring_VSliderScalar);
 	RING_API_REGISTER("imgui_inputtext",ring_InputText);

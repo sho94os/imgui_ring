@@ -27,7 +27,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/pc/Desktop/New folder/build"
+			"value" : "i:/Git_imgui_r/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -479,7 +479,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/pc/Desktop/New folder"
+			"value" : "I:/Git_imgui_r"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1015,7 +1015,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/pc/Desktop/New folder/build"
+			"value" : "I:/Git_imgui_r/build"
 		},
 		{
 			"name" : "imgu_ring_IS_TOP_LEVEL",
@@ -1039,7 +1039,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/pc/Desktop/New folder"
+			"value" : "I:/Git_imgui_r"
 		}
 	],
 	"kind" : "cache",
