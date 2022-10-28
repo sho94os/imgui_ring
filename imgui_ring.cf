@@ -323,6 +323,8 @@ bool  SliderInt(const char * label, int * v, int v_min, int v_max, const char * 
 
 bool  SliderDouble(const char *label, double *v, double v_min, double v_max, const char *format , ImGuiSliderFlags flags )
 
+bool  Checkbox(const char * label, bool * v)
+
 </register>
 
 
@@ -547,13 +549,13 @@ RING_FUNC(ring_SliderDouble)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-/*
-	if ( ! RING_API_ISCPOINTER(2) ) {
+
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 
-*/	
+
 	if ( ! RING_API_ISNUMBER(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -578,6 +580,27 @@ RING_FUNC(ring_SliderDouble)
 	RING_API_RETNUMBER(SliderDouble(RING_API_GETSTRING(1), d_ptr  , (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5), (ImGuiSliderFlags ) RING_API_GETNUMBER(6)));
 
 	// RING_API_ACCEPTINTVALUE(2);  //dont use this line with double ist will make value null
+}
+
+
+RING_FUNC(ring_Checkbox)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	
+	RING_API_RETNUMBER(Checkbox(RING_API_GETSTRING(1),(bool *)RING_API_GETINTPOINTER(2)));
+	RING_API_ACCEPTINTVALUE(2); 
 }
 
 
@@ -737,7 +760,7 @@ bool          ArrowButton(const char * str_id, ImGuiDir dir)
 
 void          Image(ImTextureID user_texture_id, const ImVec2 size, const ImVec2 uv0 , const ImVec2 uv1 , const ImVec4 tintCol , const ImVec4 borderCol )
 bool          ImageButton(ImTextureID user_texture_id, const ImVec2 size, const ImVec2 uv0 ,  const ImVec2 uv1 , int frame_padding , const ImVec4 bg_col , const ImVec4 tint_col )
-bool          Checkbox(const char * label, bool * v)
+
 bool          CheckboxFlags(const char * label, int * flags, int flags_value)
 bool          CheckboxFlags@2(const char * label, unsigned int * flags, unsigned int flags_value)
 bool          RadioButton(const char * label, bool active)

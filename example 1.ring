@@ -36,20 +36,20 @@ while true
         ImGui_ImplSDLRenderer_NewFrame()
         ImGui_ImplSDL2_NewFrame()
         imgui_NewFrame()
-				##########################################
-				### you should write your code hier
+        ##########################################
+        ### you should write your code hier
 
-				imgui_ShowDemoWindow(NULL)             ## show demo windo that contain everything
+        imgui_ShowDemoWindow(NULL)             ## show demo windo that contain everything
 				
 
-				######################################
-				imgui_Render()
-				SDL_SetRenderDrawColor(ren,255,255,255,255)
-				SDL_RenderClear(ren)
-				
-				ImGui_ImplSDLRenderer_RenderDrawData(imgui_GetDrawData())
-				
-				SDL_RenderPresent(ren)
+	######################################
+	imgui_Render()
+	SDL_SetRenderDrawColor(ren,255,255,255,255)
+	SDL_RenderClear(ren)
+	
+	ImGui_ImplSDLRenderer_RenderDrawData(imgui_GetDrawData())
+	
+	SDL_RenderPresent(ren)
 
 end
 

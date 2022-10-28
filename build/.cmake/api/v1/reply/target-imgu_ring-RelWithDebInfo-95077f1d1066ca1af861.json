@@ -2,13 +2,13 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Release/imgu_ring.dll"
+			"path" : "RelWithDebInfo/imgu_ring.dll"
 		},
 		{
-			"path" : "Release/imgu_ring.lib"
+			"path" : "RelWithDebInfo/imgu_ring.lib"
 		},
 		{
-			"path" : "Release/imgu_ring.pdb"
+			"path" : "RelWithDebInfo/imgu_ring.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -33,25 +33,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 21,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 16,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 23,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 14,
+				"line" : 13,
 				"parent" : 0
 			}
 		]
@@ -62,7 +62,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /Zi /O2 /Ob1 /DNDEBUG"
 				}
 			],
 			"defines" : 
@@ -112,7 +112,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/machine:X86 /INCREMENTAL:NO",
+				"fragment" : "/machine:X86 /debug /INCREMENTAL",
 				"role" : "flags"
 			},
 			{

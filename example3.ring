@@ -30,6 +30,12 @@ slint = 2
 
 v2 = imvec2(0,0)
 
+clicked = 0
+
+check  = true
+
+e = 0
+
 
 myevent = sdl_new_sdl_event()
 while true
@@ -41,67 +47,81 @@ while true
 						
 				ok
 				*/
-				ImGui_ImplSDL2_ProcessEvent(myevent)
+		ImGui_ImplSDL2_ProcessEvent(myevent)
 
         switch sdl_get_sdl_event_type(myevent)
-                on sdl_get_sdl_quit()
-                        exit
-                on sdl_get_sdl_keydown()
-                        Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
-                        if key = 27 exit ok
-
+			on sdl_get_sdl_quit()
+					exit
+			on sdl_get_sdl_keydown()
+					Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
+					if key = 27 exit ok
+			
         off
 
         ImGui_ImplSDLRenderer_NewFrame()
         ImGui_ImplSDL2_NewFrame()
         imgui_NewFrame()
-				##########################################
-				### you should write your code hier
+		##########################################
+		### you should write your code hier
 
-				imgui_ShowDemoWindow(NULL)  
+		imgui_ShowDemoWindow(NULL)  
 
-				if  close_btn = true
-						imgui_begin("mywind","close_btn",0)
-								
+		if  close_btn = true
+			imgui_begin("mywind","close_btn",0)
+						
 
-                #add button in windo
-                if ig_button("click me",v2)
-					        ? "Button 1 pressed"
-									? close_btn
-				        ok
+		#add button in windo
+		if ig_button("click me",v2)
+			? "Button 1 pressed"
+			? close_btn
+			clicked++
+		ok
 
-				        if ig_button("Button 2",v2)
-					        ? "Button 2 pressed"
-				        ok
+		if clicked and 1
+			imgui_sameline(0,-1)  
 
-			        	if ig_button("show anthor window",v2)
-					        	close_btn2 = true
-				        ok
+			imgui_text("Thanks for clicking me!")
+		ok
+
+		if ig_button("Button 2",v2)
+			? "Button 2 pressed"
+		ok
+
+		if ig_button("show anthor window",v2)
+			close_btn2 = true
+		ok
+		
+	
+		imgui_checkbox("checkbox",:check);
+		
+
+		if  imgui_sliderint("slider int",:slint, 1,20,"%d",0)
+				? "value chanched : " + slint
+		ok
+
+		if  imgui_sliderdouble("slider Double", :d_var ,0,5,"%.2f",0)
+				? "value chanched : " + d_var
+		ok
+
+        imgui_RadioButton_2("radio a", :e, 0) imgui_sameline(0,-1)
+        imgui_RadioButton_2("radio b", :e, 1) imgui_sameline(0,-1)
+        imgui_RadioButton_2("radio c", :e, 2)
 
 
-
-								if  imgui_sliderint("slider int",:slint, 1,20,"%d",0)
-										? "value chanched : " + slint
-								ok
-
-								if  imgui_sliderdouble("slider Double", :d_var ,0,5,"%.2f",0)
-										? "value chanched : " + d_var
-								ok
+						
+		imgui_end()
+		
+		ok
 
 
-								
-						imgui_end()
-				ok
-
-
-				######################################
-				imgui_Render()
-				SDL_SetRenderDrawColor(ren,255,255,255,255)
-				SDL_RenderClear(ren)
-				
-				ImGui_ImplSDLRenderer_RenderDrawData(imgui_GetDrawData())
-				
-				SDL_RenderPresent(ren)
+		######################################
+		imgui_Render()
+		SDL_SetRenderDrawColor(ren,255,255,255,255)
+		SDL_RenderClear(ren)
+		
+		ImGui_ImplSDLRenderer_RenderDrawData(imgui_GetDrawData())
+		
+		SDL_RenderPresent(ren)
 
 end
 
