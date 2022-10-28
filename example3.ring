@@ -29,46 +29,48 @@ d_var = 0.5
 slint = 2
 
 v2 = imvec2(0,0)
+v4 = ImVec4(1.0f, 0.0f, 1.0f, 1.0f)
 
 clicked = 0
 
 check  = true
 
 e = 0
-
+counter = 0
 
 myevent = sdl_new_sdl_event()
 while true
 
 				
-        thevent = sdl_pollevent(myevent)
-				/*				
-				if thevent = 0
-						
-				ok
-				*/
-		ImGui_ImplSDL2_ProcessEvent(myevent)
+	thevent = sdl_pollevent(myevent)
+			/*				
+			if thevent = 0
+					
+			ok
+			*/
+	ImGui_ImplSDL2_ProcessEvent(myevent)
 
-        switch sdl_get_sdl_event_type(myevent)
-			on sdl_get_sdl_quit()
-					exit
-			on sdl_get_sdl_keydown()
-					Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
-					if key = 27 exit ok
-			
-        off
+	switch sdl_get_sdl_event_type(myevent)
+		on sdl_get_sdl_quit()
+				exit
+		on sdl_get_sdl_keydown()
+				Key = SDL_GET_SDL_Event_key_keysym_sym(myevent)
+				if key = 27 exit ok
+		
+	off
 
-        ImGui_ImplSDLRenderer_NewFrame()
-        ImGui_ImplSDL2_NewFrame()
-        imgui_NewFrame()
-		##########################################
-		### you should write your code hier
+	ImGui_ImplSDLRenderer_NewFrame()
+	ImGui_ImplSDL2_NewFrame()
+	imgui_NewFrame()
+	##########################################
+	### you should write your code hier
 
-		imgui_ShowDemoWindow(NULL)  
+	imgui_ShowDemoWindow(NULL)  
 
-		if  close_btn = true
-			imgui_begin("mywind","close_btn",0)
-						
+	if  close_btn = true
+	
+		imgui_begin("mywind","close_btn",0)
+
 
 		#add button in windo
 		if ig_button("click me",v2)
@@ -90,10 +92,10 @@ while true
 		if ig_button("show anthor window",v2)
 			close_btn2 = true
 		ok
-		
-	
-		imgui_checkbox("checkbox",:check);
-		
+
+
+		imgui_checkbox("checkbox",:check)
+
 
 		if  imgui_sliderint("slider int",:slint, 1,20,"%d",0)
 				? "value chanched : " + slint
@@ -103,25 +105,60 @@ while true
 				? "value chanched : " + d_var
 		ok
 
-        imgui_RadioButton_2("radio a", :e, 0) imgui_sameline(0,-1)
-        imgui_RadioButton_2("radio b", :e, 1) imgui_sameline(0,-1)
-        imgui_RadioButton_2("radio c", :e, 2)
+		imgui_RadioButton_2("radio a", :e, 0) imgui_sameline(0,-1)
+		imgui_RadioButton_2("radio b", :e, 1) imgui_sameline(0,-1)
+		imgui_RadioButton_2("radio c", :e, 2)
 
+		#imgui_AlignTextToFramePadding()
+		################################
+		ImGui_Text("Hold to repeat:") 
+		imgui_sameline(0,-1)
 
-						
-		imgui_end()
-		
+        imgui_PushButtonRepeat(true)
+
+        if imgui_ArrowButton("##left", ImGuiDir_Left)
+		  counter-- 
 		ok
 
+        imgui_sameline(0,-1)
 
-		######################################
-		imgui_Render()
-		SDL_SetRenderDrawColor(ren,255,255,255,255)
-		SDL_RenderClear(ren)
-		
-		ImGui_ImplSDLRenderer_RenderDrawData(imgui_GetDrawData())
-		
-		SDL_RenderPresent(ren)
+        if imgui_ArrowButton("##right", ImGuiDir_Right) 
+			counter++
+		ok
+        imgui_PopButtonRepeat()
+        imgui_sameline(0,-1)
+        imgui_Text(""+counter)
+		###########################################	
+
+		for i = 0 to 7
+        
+            if i > 0
+                imgui_sameline(0,-1)
+			ok	
+	        ImGui_PushID_4(i);
+            ig_PushStyleColor(ImGuiCol_Button, ImVec4(i / 7.0f, 0.6f, 0.6f , 1.0) ) #ImVec4(i / 7.0f, 0.6f, 0.6f)
+            ig_PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(i / 7.0f, 0.7f, 0.7f , 1.0));
+            ig_PushStyleColor(ImGuiCol_ButtonActive, ImVec4(i / 7.0f, 0.8f, 0.8f , 1.0));
+            ig_button("Click",v2);
+            ImGui_PopStyleColor(3);
+            ImGui_PopID();
+        next
+
+
+
+		imgui_end()
+	
+	ok
+
+
+	######################################
+	imgui_Render()
+	SDL_SetRenderDrawColor(ren,255,255,255,255)
+	SDL_RenderClear(ren)
+	
+	ImGui_ImplSDLRenderer_RenderDrawData(imgui_GetDrawData())
+	
+	SDL_RenderPresent(ren)
 
 end
 

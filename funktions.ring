@@ -17,4 +17,7 @@ func ig_TextColored  x,y
     return imgui_TextColored(GPData(x), GPData(y)) 
 
 func ig_button  x,y
-    return imgui_button(GPData(x), GPData(y)) 
+    return imgui_button(x, GPData(y))
+
+func ig_PushStyleColor p1,p2
+     imgui_PushStyleColor_2(p1,GPData(p2))
