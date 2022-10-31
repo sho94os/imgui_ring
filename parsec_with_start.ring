@@ -578,7 +578,7 @@ Func GenFuncCodeCheckParaType aList
 					 C_TABS_2 + "return ;" + nl +
 					 C_TABS_1 + "}" + nl
 			on C_TYPE_POINTER
-				if GenPointerType(x) = "int" or GenPointerType(x) = "double"
+				if GenPointerType(x) = "int" or GenPointerType(x) = "double"  or GenPointerType(x) = "float"
 					# pointer to int, i.e. int *
 					cCode += C_TABS_1 + "if ( ! RING_API_ISSTRING("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
@@ -670,7 +670,9 @@ Func GenFuncCodeGetParaValues aList
 				if GenPointerType(x) = "int"
 					cCode += "RING_API_GETINTPOINTER(" + t + ")"
 				but GenPointerType(x) = "double"
-					cCode += "(double *)RING_API_GETDOUBLEPOINTER(" + t + ")"
+					cCode += "(double *) RING_API_GETDOUBLEPOINTER(" + t + ")"
+				but GenPointerType(x) = "float"
+					cCode += "(float *)RING_API_GETFLOATPOINTER(" + t + ")"
 				else
 					if not IsPointer2Pointer(x)
 						cCode += "(" + GenPointerType(x) + " *) RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'
@@ -703,6 +705,9 @@ Func GenFuncCodeGetIntValues aList
 				if GenPointerType(x) = "int"
 					cCode += C_TABS_1 + 
 					"RING_API_ACCEPTINTVALUE(" + t + ") ;" + nl
+				but GenPointerType(x) = "float"	
+					cCode += C_TABS_1 + 
+					"RING_API_ACCEPTFLOATVALUE(" + t + ") ;" + nl					
 				ok
 			ok
 		next
@@ -1255,6 +1260,8 @@ Func GenMethodCodeGetParaValues aList
 					cCode += "RING_API_GETINTPOINTER(" + t + ")"
 				but GenPointerType(x) = "double"
 					cCode += "RING_API_GETDOUBLEPOINTER(" + t + ")"
+				but GenPointerType(x) = "float"
+					cCode += "RING_API_GETFLOATPOINTER(" + t + ")"	
 				else
 					cCode += "(" + GenPointerType(x) + " *) " + 
 					"RING_API_GETCPOINTER(" + t +',"'+GenPointerType(x)+ '")'

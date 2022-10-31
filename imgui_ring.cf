@@ -30,8 +30,12 @@ extern "C"
 }
 
 
+struct imRgb
+{
+	float R, G, B;
+};
 
-
+typedef struct imRgb imRgb;
 typedef struct ImDrawChannel ImDrawChannel;
 typedef struct ImDrawCmd ImDrawCmd;
 typedef struct ImDrawData ImDrawData;
@@ -246,6 +250,7 @@ aEnumTypes + "ImGuiKeyModFlags_"
 
 <struct>
 
+imRgb {R, G, B}
 
 ImVec2 {x,y}
 ImVec4 {x,y,z,w}
@@ -278,7 +283,7 @@ ImGuiTextFilter
 ImGuiTextBuffer
 ImGuiStorage
 ImGuiListClipper
-ImColor
+ImColor{Value.x,Value.y,Value.z,Value.w}
 ImDrawCmd
 ImDrawVert
 ImDrawCmdHeader
@@ -325,6 +330,19 @@ bool  SliderDouble(const char *label, double *v, double v_min, double v_max, con
 
 bool  Checkbox(const char * label, bool * v)
 
+ImColor ImColor_HSV(float h, float s, float v, float a )
+
+bool Combo(const char *label, int *current_item, const char *const items[], int items_count, int popup_max_height_in_items )
+
+bool InputText(const char * label, char * buf, size_t buf_size, ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+
+bool InputTextWithHint(const char * label, const char * hint, char * buf, size_t buf_size, ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+
+bool      ColorEdit4(const char * label, float * col, ImGuiColorEditFlags flags )
+
+bool      ColorEdit3(const char * label, float *col, ImGuiColorEditFlags flags )
+
+bool      ListBox(const char * label, int * current_item, const char * const items[], int items_count, int height_in_items)
 </register>
 
 
@@ -603,11 +621,307 @@ RING_FUNC(ring_Checkbox)
 	RING_API_ACCEPTINTVALUE(2); 
 }
 
+RING_FUNC(ring_ImColor_HSV)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		ImColor *pValue ; 
+		pValue = (ImColor *) RING_API_MALLOC(sizeof(ImColor)) ;
+		*pValue = pValue->HSV( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
+		RING_API_RETMANAGEDCPOINTER(pValue,"ImColor",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_Combo)
+{
+        if ( RING_API_PARACOUNT != 5 ) {
+                RING_API_ERROR(RING_API_BADPARACOUNT);
+                return ;
+        }
+        if ( ! RING_API_ISSTRING(1) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISSTRING(2) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+		if ( ! RING_API_ISLIST(3) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(4) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(5) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+
+		List *pList;
+
+		pList = RING_API_GETLIST(3);
+
+		static char *str[100];
+
+		// static char **str = (char **)malloc(ring_list_getsize(pList) * sizeof(char **));
+
+		int x;
+		static bool itemAdded_already = true;
+
+		if (itemAdded_already)
+		{
+			
+			for (x = 1; x <= ring_list_getsize(pList); x++)
+			{
+
+				str[x - 1] = (char *)ring_list_getstring(pList, x);
+			}
+			str[x] = NULL;
+			itemAdded_already = false;
+		}
+
+        RING_API_RETNUMBER(Combo(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2), str , (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)));
+        RING_API_ACCEPTINTVALUE(2);
+}
+
+
+RING_FUNC(ring_InputText)
+{
+	if (RING_API_PARACOUNT != 6)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	if (!RING_API_ISSTRING(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISSTRING(2))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISNUMBER(3))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISNUMBER(4))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(6))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	static bool clearStr = true;
+	if (clearStr)
+	{
+		strcpy((char *)RING_API_GETCHARPOINTER(2), "");
+		clearStr = false;
+	}
+
+
+	RING_API_RETNUMBER(InputText(RING_API_GETSTRING(1), (char *) RING_API_GETCHARPOINTER(2), RING_API_GETNUMBER(3), 0, NULL, NULL));
+}
+
+
+RING_FUNC(ring_InputTextWithHint)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	static bool clearStr = true;
+	if (clearStr)
+	{
+		strcpy((char *)RING_API_GETCHARPOINTER(3), "");
+		clearStr = false;
+	}
+	RING_API_RETNUMBER(InputTextWithHint(RING_API_GETSTRING(1),RING_API_GETSTRING(2),(char *) RING_API_GETCHARPOINTER(3), (size_t ) RING_API_GETNUMBER(4), (ImGuiInputTextFlags ) RING_API_GETNUMBER(5),0 ,NULL));
+	//if (RING_API_ISCPOINTERNOTASSIGNED(6))
+	//	RING_API_FREE(RING_API_GETCPOINTER(6,"ImGuiInputTextCallback"));
+}
+
+
+RING_FUNC(ring_ColorEdit4)
+{
+	if (RING_API_PARACOUNT != 3)
+	{
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	if (!RING_API_ISSTRING(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	// if ( ! RING_API_ISSTRING(2) || ! RING_API_ISCPOINTER(2) ) {
+	// 	RING_API_ERROR(RING_API_BADPARATYPE);
+	// 	return ;
+	// }
+	if (!RING_API_ISNUMBER(3))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if (RING_API_ISSTRING(2))
+	{
+
+		RING_API_RETNUMBER(ColorEdit4(RING_API_GETSTRING(1), (float *)RING_API_GETFLOATPOINTER(2), (ImGuiColorEditFlags)RING_API_GETNUMBER(3)));
+
+		RING_API_ACCEPTFLOATVALUE(2);
+	}
+	else if (RING_API_ISCPOINTER(2))
+	{
+		RING_API_RETNUMBER(ColorEdit4(RING_API_GETSTRING(1), (float *)(ImVec4 *)RING_API_GETCPOINTER(2, "ImVec4"), (ImGuiColorEditFlags)RING_API_GETNUMBER(3)));
+
+		// not sure with this code
+		if (RING_API_ISCPOINTERNOTASSIGNED(2))
+			RING_API_FREE(RING_API_GETCPOINTER(2, "ImVec2"));
+	}
+
+
+}
+
+
+
+RING_FUNC(ring_ColorEdit3)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	RING_API_RETNUMBER(ColorEdit3(RING_API_GETSTRING(1),(float *)(imRgb *)RING_API_GETCPOINTER(2, "imRgb"), (ImGuiColorEditFlags ) RING_API_GETNUMBER(3)));
+	
+}
+
+
+RING_FUNC(ring_ListBox)
+{
+		if ( RING_API_PARACOUNT != 5 ) {
+		        RING_API_ERROR(RING_API_BADPARACOUNT);
+		        return ;
+		}
+		if ( ! RING_API_ISSTRING(1) ) {
+		        RING_API_ERROR(RING_API_BADPARATYPE);
+		        return ;
+		}
+		if ( ! RING_API_ISSTRING(2) ) {
+		        RING_API_ERROR(RING_API_BADPARATYPE);
+		        return ;
+		}
+		if ( ! RING_API_ISNUMBER(4) ) {
+		        RING_API_ERROR(RING_API_BADPARATYPE);
+		        return ;
+		}
+		if ( ! RING_API_ISNUMBER(5) ) {
+		        RING_API_ERROR(RING_API_BADPARATYPE);
+		        return ;
+		}
+
+
+
+		
+		static bool itemAdded_already = true;
+
+		if (itemAdded_already)
+		{
+			List *pList;
+
+			pList = RING_API_GETLIST(3);
+
+			static char** str;
+
+			// static char **str = (char **)malloc(ring_list_getsize(pList) * sizeof(char **));
+
+			int x;
+			
+			for (x = 1; x <= ring_list_getsize(pList); x++)
+			{
+
+				str[x - 1] = (char *)ring_list_getstring(pList, x);
+			}
+			str[x] = NULL;
+			itemAdded_already = false;
+		}
+
+        RING_API_RETNUMBER(ListBox(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2), str , (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)));
+ 
+        RING_API_ACCEPTINTVALUE(2) ;
+}
 
 </code>
-
-
-
 
 
 
@@ -774,27 +1088,16 @@ void          EndCombo(void)
 
 
 
-
-bool          Combo(const char * label, int * item, const char ** items, int items, int items )
-
-
-
-
-
-
-
-
-
 bool          SliderScalar(const char * label, ImGuiDataType data_type, void * p_data, const void * p_min, const void * p_max, const char * format , ImGuiSliderFlags flags)
 bool          SliderScalarN(const char * label, ImGuiDataType data_type, void * p_data, int components, const void * p_min, const void * p_max, const char * format , ImGuiSliderFlags flags )
 
 
 bool          VSliderInt(const char * label, const ImVec2 size, int * v, int v_min, int v_max, const char * f, ImGuiSliderFlags flags )
 bool          VSliderScalar(const char * label, const ImVec2 size, ImGuiDataType data_type, void * p_data, const void * p_min, const void * p_max, const char * f , ImGuiSliderFlags flags )
-bool          InputText(const char * label, char * buf, size_t buf_size, ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+
 
 bool          InputTextMultiline(const char * label, char * buf, size_t buf_size, const ImVec2 size , ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
-bool          InputTextWithHint(const char * label, const char * hint, char * buf, size_t buf_size, ImGuiInputTextFlags flags , ImGuiInputTextCallback callback , void * user_data )
+
 bool          InputFloat(const char * label, float * v, float step , float step_fast , const char * formattt, ImGuiInputTextFlags flags )
 
 
@@ -1007,6 +1310,9 @@ bool      TreeNode(const char * str_id, const char * fmt)
 bool      TreeNode@2(const void * ptr_id, const char * fmt) 
 bool      TreeNodeEx(const char * str_id, ImGuiTreeNodeFlags flags, const char * fmt)
 bool      TreeNodeEx@2(const void * ptr_id, ImGuiTreeNodeFlags flags, const char * fmt)
+
+bool      DragInt(const char * label, int * v, float v_speed , int v_min , int v_max , const char * format , ImGuiSliderFlags flags )
+
 
 
 
