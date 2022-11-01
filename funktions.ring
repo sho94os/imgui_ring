@@ -26,7 +26,7 @@ func GPData vData
 	return vData
 
 func ig_TextColored  x,y
-    return imgui_TextColored(GPData(x), GPData(y)) 
+    return imgui_TextColored(GPData(x), y) 
 
 func ig_button  x,y
     return imgui_button(x, GPData(y))
