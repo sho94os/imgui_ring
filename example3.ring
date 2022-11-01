@@ -67,6 +67,8 @@ myV4 = ImVec4(1.0f, 0.0f, 1.0f, 1.0f)
 
 rgb_1 = ImRGB(1.0, 0.0, 0.2)
 
+rgbList = [1.0, 0.0, 0.2]
+
 listbox_items = ["Apple", "Banana", "Cherry", "Kiwi", "Mango", "Orange", "Pineapple", "Strawberry", "Watermelon"]
 
 current_item_listbox = 1
@@ -251,6 +253,10 @@ if thevent != 0
 				? ""+rgb_1.R +" : " + rgb_1.G + " : " +rgb_1.B
 			ok
 
+			if imgui_ColorEdit3("color list", rgbList , 0)
+				? rgbList[1]
+			ok
+
 			if imgui_ListBox("listbox", :current_item_listbox, listbox_items, len	(listbox_items), 4)
 
 			ok
@@ -347,6 +353,13 @@ if thevent != 0
 
 			imgui_TreePop()
 		ok
+
+		if imgui_treeNode("Combo")
+
+
+			imgui_TreePop()
+		ok
+
 		imgui_end()
 	
 	ok

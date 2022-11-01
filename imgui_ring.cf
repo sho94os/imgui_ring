@@ -35,6 +35,21 @@ struct imRgb
 	float R, G, B;
 };
 
+char **ringList_to_Carray(List *pList, int size)
+{
+	char **str = (char **)malloc(ring_list_getsize(pList) * sizeof(char *));
+
+	int x;
+
+	for (x = 1; x <= ring_list_getsize(pList); x++)
+	{
+		str[x - 1] = (char *)ring_list_getstring(pList, x);
+	}
+	str[x - 1] = NULL;
+
+	return str;
+}
+
 typedef struct imRgb imRgb;
 typedef struct ImDrawChannel ImDrawChannel;
 typedef struct ImDrawCmd ImDrawCmd;
