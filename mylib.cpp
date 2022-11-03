@@ -7525,27 +7525,26 @@ RING_FUNC(ring_Combo)
 
 	pList = RING_API_GETLIST(3);
 
-	static char *str[100];
+	// static char *str[100];
 
-	// static char **str = (char **)malloc(ring_list_getsize(pList) * sizeof(char **));
+	char **str;
+
+	str = (char **)malloc(ring_list_getsize(pList) * sizeof(char *));
 
 	int x;
-	static bool itemAdded_already = true;
-
-	if (itemAdded_already)
+	for (x = 1; x <= ring_list_getsize(pList); x++)
 	{
+		printf("..\n");
 
-		for (x = 1; x <= ring_list_getsize(pList); x++)
-		{
-
-			str[x - 1] = (char *)ring_list_getstring(pList, x);
-		}
-		str[x] = NULL;
-		itemAdded_already = false;
+		str[x - 1] = (char *)ring_list_getstring(pList, x);
 	}
+	str[x - 1] = NULL;
 
 	RING_API_RETNUMBER(Combo(RING_API_GETSTRING(1), RING_API_GETINTPOINTER(2), str, (int)RING_API_GETNUMBER(4), (int)RING_API_GETNUMBER(5)));
 	RING_API_ACCEPTINTVALUE(2);
+
+	free(str);
+	str = NULL;
 }
 
 RING_FUNC(ring_InputText)
@@ -7706,22 +7705,54 @@ RING_FUNC(ring_ColorEdit3)
 		return;
 	}
 
-	List *pList;
-	pList = RING_API_GETLIST(2);
+	if (RING_API_ISCPOINTER(2))
+	{
+		RING_API_RETNUMBER(ColorEdit3(RING_API_GETSTRING(1), (float *)(imRgb *)RING_API_GETCPOINTER(2, "imRgb"), (ImGuiColorEditFlags)RING_API_GETNUMBER(3)));
+	}
+	else if (RING_API_ISLIST(2))
+	{
 
-	float arr[3] = {(float)ring_list_getdouble(pList, 1), (float)ring_list_getdouble(pList, 2), (float)ring_list_getdouble(pList, 3)};
+		List *pList;
+		pList = RING_API_GETLIST(2);
 
-	// arr[0] = (float *)ring_list_getpointer(pList, 1);
-	// arr[1] = (float *)ring_list_getpointer(pList, 2);
-	// arr[2] = (float *)ring_list_getpointer(pList, 3);
+		if (ring_list_getsize(pList) < 3)
+		{
+			RING_API_ERROR("list size should be 3 with float items");
+		}
 
-	// double *ptr = (double *)ring_list_getpointer(pList, 1);
+		float arr[3] = {(float)ring_list_getdouble(pList, 1), (float)ring_list_getdouble(pList, 2), (float)ring_list_getdouble(pList, 3)};
 
-	RING_API_RETNUMBER(ColorEdit3(RING_API_GETSTRING(1), arr, (ImGuiColorEditFlags)RING_API_GETNUMBER(3)));
+		RING_API_RETNUMBER(ColorEdit3(RING_API_GETSTRING(1), arr, (ImGuiColorEditFlags)RING_API_GETNUMBER(3)));
 
-	ring_list_setdouble(pList, 1, arr[0]);
-	ring_list_setdouble(pList, 2, arr[1]);
-	ring_list_setdouble(pList, 3, arr[2]);
+		ring_list_setdouble(pList, 1, arr[0]);
+		ring_list_setdouble(pList, 2, arr[1]);
+		ring_list_setdouble(pList, 3, arr[2]);
+	}
+	else
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+
+	/*
+
+		List *pList;
+		pList = RING_API_GETLIST(2);
+
+		float arr[3] = {(float)ring_list_getdouble(pList, 1), (float)ring_list_getdouble(pList, 2), (float)	ring_list_getdouble(pList, 3)};
+
+		// arr[0] = (float *)ring_list_getpointer(pList, 1);
+		// arr[1] = (float *)ring_list_getpointer(pList, 2);
+		// arr[2] = (float *)ring_list_getpointer(pList, 3);
+
+		// double *ptr = (double *)ring_list_getpointer(pList, 1);
+
+		RING_API_RETNUMBER(ColorEdit3(RING_API_GETSTRING(1), arr, (ImGuiColorEditFlags)RING_API_GETNUMBER(3)));
+
+		ring_list_setdouble(pList, 1, arr[0]);
+		ring_list_setdouble(pList, 2, arr[1]);
+		ring_list_setdouble(pList, 3, arr[2]);
+
+	*/
 }
 
 RING_FUNC(ring_ListBox)
@@ -7755,7 +7786,16 @@ RING_FUNC(ring_ListBox)
 	List *pList;
 	pList = RING_API_GETLIST(3);
 
-	char **str = ringList_to_Carray(pList, ring_list_getsize(pList));
+	char **str = (char **)malloc(ring_list_getsize(pList) * sizeof(char *));
+
+	int x;
+
+	for (x = 1; x <= ring_list_getsize(pList); x++)
+	{
+		str[x - 1] = (char *)ring_list_getstring(pList, x);
+		// str[x - 1][0] = 'K';
+	}
+	str[x - 1] = NULL;
 
 	RING_API_RETNUMBER(ListBox(RING_API_GETSTRING(1), RING_API_GETINTPOINTER(2), str, (int)RING_API_GETNUMBER(4), (int)RING_API_GETNUMBER(5)));
 	RING_API_ACCEPTINTVALUE(2);
@@ -10591,9 +10631,7 @@ RING_FUNC(ring_Selectable)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	RING_API_RETNUMBER(Selectable(RING_API_GETSTRING(1), (bool)RING_API_GETNUMBER(2), (ImGuiSelectableFlags)RING_API_GETNUMBER(3), *(const ImVec2 *)RING_API_GETCPOINTER(4, "const ImVec2")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		RING_API_FREE(RING_API_GETCPOINTER(4, "ImVec2"));
+	RING_API_RETNUMBER(Selectable(RING_API_GETSTRING(1), (bool)RING_API_GETNUMBER(2), (ImGuiSelectableFlags)RING_API_GETNUMBER(3), ImVec2(0, 0)));
 }
 
 RING_FUNC(ring_Selectable_2)
@@ -10637,9 +10675,7 @@ RING_FUNC(ring_BeginListBox)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return;
 	}
-	RING_API_RETNUMBER(BeginListBox(RING_API_GETSTRING(1), *(const ImVec2 *)RING_API_GETCPOINTER(2, "const ImVec2")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2, "ImVec2"));
+	RING_API_RETNUMBER(BeginListBox(RING_API_GETSTRING(1), ImVec2(0, 0)));
 }
 
 RING_FUNC(ring_EndListBox)

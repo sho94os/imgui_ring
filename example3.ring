@@ -42,7 +42,7 @@ item_current = 0
 
 
 
-items = ["aaaa","bbbb","cccc","dddd","eeee","looool","school"]
+items = ["aaaa","bbbb","cccc","dddd","eeee","looool","school","GGGG"]
 
 cString = space(128)
 
@@ -75,6 +75,10 @@ current_item_listbox = 1
 
 closable_group = true
 
+
+j = 0
+
+begin_combo_current_item = "not selected yet"
 
 ####################################################
 
@@ -218,6 +222,10 @@ if thevent != 0
 				? "value chanched : " + item_current
 			ok
 
+			if ig_button("add item to combo",v2)
+				? items + ("neu"+ j++)
+			ok
+
 			if imgui_inputText("input text",:cString,len(cString),0,NULL,NULL)
 				? "typed"
 			ok
@@ -356,6 +364,21 @@ if thevent != 0
 
 		if imgui_treeNode("Combo")
 
+			if imgui_begincombo("combo begin",begin_combo_current_item,0)
+
+				for x = 1  to len(items) 
+					if imgui_Selectable(items[x],1,0,v2)
+						begin_combo_current_item = items[x]
+					ok	
+				next
+
+				imgui_EndCombo()
+			ok
+
+			if imgui_BeginListBox("list begin", v2)  
+			    
+				imgui_EndListBox()
+			ok
 
 			imgui_TreePop()
 		ok
