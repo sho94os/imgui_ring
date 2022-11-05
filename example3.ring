@@ -19,6 +19,15 @@ ImGui_ImplSDLRenderer_Init(ren)
 
 
 
+style = GetStyle()
+#style.iteminnerspacing.x = 2
+
+? style.iteminnerspacing.x
+
+? imgui_getframeheight()
+
+ #imgui_calcitemwidth()
+
 close_btn = true
 close_btn2 = true
 
@@ -78,7 +87,7 @@ closable_group = true
 
 j = 0
 
-begin_combo_current_item = "not selected yet"
+begin_combo_current_item = ""
 
 ####################################################
 
@@ -362,23 +371,64 @@ if thevent != 0
 			imgui_TreePop()
 		ok
 
+
 		if imgui_treeNode("Combo")
+			
 
-			if imgui_begincombo("combo begin",begin_combo_current_item,0)
+			w = imgui_CalcItemWidth()
+			spacing = style.iteminnerspacing.x
+			button_sz = imgui_GetFrameHeight()
 
-				for x = 1  to len(items) 
-					if imgui_Selectable(items[x],1,0,v2)
-						begin_combo_current_item = items[x]
+			imgui_pushitemwidth(w - spacing * 2.0f - button_sz * 2.0f)
+
+			if imgui_begincombo("##combo begin",begin_combo_current_item,ImGuiComboFlags_NoArrowButton)
+
+				for i = 1  to len(items) 
+					if ig_Selectable(items[i],1,0,v2)
+						begin_combo_current_item = items[i]
 					ok	
 				next
 
 				imgui_EndCombo()
 			ok
 
-			if imgui_BeginListBox("list begin", v2)  
+			imgui_PopItemWidth()
+
+			imgui_sameline(0,spacing)
+
+
+			if imgui_ArrowButton("##left", ImGuiDir_Left)
+
+				index = find(items,begin_combo_current_item)
+			  	if  index != 1
+					begin_combo_current_item = items[find(items,begin_combo_current_item)-1]
+			  	else
+					begin_combo_current_item = items[len(items)]
+			  	ok
+			  
+			ok
+
+        	imgui_sameline(0,spacing)
+
+        	if imgui_ArrowButton("##right", ImGuiDir_Right) 
+				
+				index = find(items,begin_combo_current_item)
+			  	if  index != len(items)
+					begin_combo_current_item = items[find(items,begin_combo_current_item)+1]
+			  	else
+					begin_combo_current_item = items[1]
+			  	ok
+			ok
+
+			imgui_sameline(0,style.ItemInnerSpacing.x)
+
+			imgui_Text("Custom Combo")
+
+			if ig_BeginListBox("list begin", v2)  
 			    
 				imgui_EndListBox()
 			ok
+
 
 			imgui_TreePop()
 		ok

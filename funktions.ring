@@ -40,3 +40,29 @@ func ig_ColorEdit4 p1,p2,p3
 
 func ig_ColorEdit3 p1,p2,p3
     return imgui_ColorEdit3(p1, p2.odata , p3)
+
+func ig_Selectable p1,p2,p3,p4
+    return imgui_Selectable(p1, p2, p3, p4.odata) 
+
+
+func ig_BeginListBox p1,p2
+    return imgui_BeginListBox(p1, p2.odata)       
+
+
+func GetStyle
+	oStyle = new imguistyle
+	oStyle.setData( imgui_GetStyle()  )
+	return oStyle    
+
+func GetCursorScreenPos
+	oImVec2 = new ImVec2
+	oImVec2.setData( imgui_getcursorscreenpos() )
+	return oImVec2      
+
+
+func setcursorscreenpos p1
+     imgui_setcursorscreenpos(p1.odata)       
+
+
+func ig_colorbutton p1,p2,p3,p4
+     imgui_colorbutton(p1,p2.odata,p3,p4.odata)          
