@@ -22,6 +22,8 @@ io = GetIO()
 
 font  = io.fonts.AddFontDefault(NULL)
 font1 = io.fonts.AddFontFromFileTTF("CascadiaCode.ttf",16.0,NULL,NULL)    
+font2 = io.fonts.AddFontFromFileTTF("CascadiaCode.ttf",14,NULL,NULL)    
+
 
 io.FontDefault = font1
 
@@ -40,7 +42,7 @@ style = GetStyle()
  #imgui_calcitemwidth()
 
 close_btn = true
-close_btn2 = true
+close_btn2 = false
 
 change = 2.5
 
@@ -138,7 +140,7 @@ if thevent != 0
 
 	if  close_btn = true
 	
-		imgui_begin("imgui in Ring","close_btn",0)
+		imgui_begin("imgui in Ring",:close_btn,0)
 
 		if imgui_treeNode("Basic")
 			#add button in windo
@@ -162,6 +164,15 @@ if thevent != 0
 				close_btn2 = true
 			ok
 
+			if close_btn2 = true
+				imgui_begin("anthor windows",:close_btn2,0)
+					
+					if ig_button("close me",v2)
+						close_btn2 = false
+					ok
+
+				imgui_end()
+			ok
 
 			if imgui_checkbox("checkbox",:check) and check 
 				? "checked"
@@ -442,6 +453,21 @@ if thevent != 0
 
 
 			imgui_TreePop()
+		ok
+
+		if imgui_treenode("anthor Font") 
+
+			imgui_pushfont(font)
+				
+				imgui_Text("Hello with another font")
+				
+				if ig_button("onthor font",v2)
+					
+				ok
+
+			imgui_PopFont()
+
+		 	imgui_TreePop()
 		ok
 
 		imgui_end()
