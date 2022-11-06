@@ -7081,6 +7081,61 @@ RING_FUNC(ring_CollapsingHeader_2)
 
 
 
+
+RING_FUNC(ring_AddFontDefault)
+{
+	if (RING_API_PARACOUNT != 2)
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	if (!RING_API_ISCPOINTER(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	ImFontAtlas *self = (ImFontAtlas *)RING_API_GETCPOINTER(2, "ImFontAtlas");
+	RING_API_RETCPOINTER(self->AddFontDefault((ImFontConfig *)RING_API_GETCPOINTER(1, "ImFontConfig")), "ImFont");
+}
+
+RING_FUNC(ring_AddFontFromFileTTF)
+{
+	if (RING_API_PARACOUNT != 5)
+	{
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	if (!RING_API_ISSTRING(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISNUMBER(2))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(3))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(4))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	ImFontAtlas *self = (ImFontAtlas *)RING_API_GETCPOINTER(5, "ImFontAtlas");
+
+	RING_API_RETCPOINTER(self->AddFontFromFileTTF(RING_API_GETSTRING(1), (float)RING_API_GETNUMBER(2), (ImFontConfig *)RING_API_GETCPOINTER(3, "ImFontConfig"), (ImWchar *)RING_API_GETCPOINTER(4, "ImWchar")), "ImFont");
+}
+
+
+
+
 RING_FUNC(ring_CreateContext)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -12589,6 +12644,8 @@ RING_LIBINIT
 	RING_API_REGISTER("imgui_listbox",ring_ListBox);
 	RING_API_REGISTER("imgui_textex",ring_TextEx);
 	RING_API_REGISTER("imgui_collapsingheader_2",ring_CollapsingHeader_2);
+	RING_API_REGISTER("imgui_addfontdefault",ring_AddFontDefault);
+	RING_API_REGISTER("imgui_addfontfromfilettf",ring_AddFontFromFileTTF);
 	RING_API_REGISTER("imgui_createcontext",ring_CreateContext);
 	RING_API_REGISTER("imgui_destroycontext",ring_DestroyContext);
 	RING_API_REGISTER("imgui_getcurrentcontext",ring_GetCurrentContext);

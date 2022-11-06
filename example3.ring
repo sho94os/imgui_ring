@@ -18,6 +18,17 @@ ImGui_ImplSDLRenderer_Init(ren)
 #########################
 
 
+io = GetIO()
+
+font  = io.fonts.AddFontDefault(NULL)
+font1 = io.fonts.AddFontFromFileTTF("CascadiaCode.ttf",16.0,NULL,NULL)    
+
+io.FontDefault = font1
+
+? "+++++++++++++++++++++"
+? font1
+? io.FontDefault
+? "+++++++++++++++++++++"
 
 style = GetStyle()
 #style.iteminnerspacing.x = 2

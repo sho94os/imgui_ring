@@ -54,6 +54,15 @@ func GetStyle
 	oStyle.setData( imgui_GetStyle()  )
 	return oStyle    
 
+#############
+
+func GetIO
+	io = new imguiio
+	io.setData( imgui_getio()  )
+	return io    
+    
+###################
+
 func GetCursorScreenPos
 	oImVec2 = new ImVec2
 	oImVec2.setData( imgui_getcursorscreenpos() )

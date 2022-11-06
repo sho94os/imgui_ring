@@ -588,3 +588,342 @@ class imguistyle from imguibase
 
 	func setcircletessellationmaxerror p1
 		imgui_set_imguistyle_circletessellationmaxerror(odata,p1)
+
+###############################################################################################
+
+
+class ImFontAtlas from imguibase 	
+
+	odata = imgui_new_imfontatlas()
+
+	func setdata ostruct 
+		odata = ostruct
+
+/*
+	func AddFontFromFileTTF p1,p2,p3,p4
+		ofont = new imfont
+		return ofont.setdata(imgui_addfontfromfilettf(p1,p2,p3,p4,odata))
+*/
+	func AddFontFromFileTTF p1,p2,p3,p4
+		ofont = new imfont
+		ofont.setdata(imgui_addfontfromfilettf(p1,p2,p3,p4,odata))
+		return ofont.odata  # return c pointer
+		#return ofont       # return object
+
+
+	func AddFontDefault p1
+		ofont = new imfont
+		ofont.setdata(imgui_AddFontDefault(p1,odata))
+		return ofont.odata
+
+
+class imfont from imguibase
+
+	odata = imgui_new_managed_imfont()
+
+	func setdata ostruct 
+		odata = ostruct
+		
+
+
+class imguiio from imguibase
+
+	configflags backendflags deltatime inisavingrate inifilename logfilename
+	mousedoubleclicktime mousedoubleclickmaxdist mousedragthreshold keyrepeatdelay
+	keyrepeatrate userdata  fontglobalscale fontallowuserscaling 
+	configdockingnosplit configdockingwithshift configdockingalwaystabbar
+	configdockingtransparentpayload configviewportsnoautomerge configviewportsnotaskbaricon
+	configviewportsnodecoration configviewportsnodefaultparent mousedrawcursor
+	configmacosxbehaviors configinputtrickleeventqueue configinputtextcursorblink
+	configdragclicktoinputtext configwindowsresizefromedges configwindowsmovefromtitlebaronly
+	configmemorycompacttimer 	
+	
+	fonts  		= new ImFontAtlas
+	fontdefault	= new imfont
+	displaysize =  new ImVec2
+	displayframebufferscale =  new ImVec2
+
+	odata = imgui_new_managed_imguiio()
+
+	func data 		
+		imgui_set_imguiio_configflags(odata,configflags)
+		imgui_set_imguiio_backendflags(odata,backendflags)
+		imgui_set_imguiio_displaysize_x(odata,displaysize.x)
+		imgui_set_imguiio_displaysize_y(odata,displaysize.y)
+		imgui_set_imguiio_deltatime(odata,deltatime)
+		imgui_set_imguiio_inisavingrate(odata,inisavingrate)
+		imgui_set_imguiio_inifilename(odata,inifilename)
+		imgui_set_imguiio_logfilename(odata,logfilename)
+		imgui_set_imguiio_mousedoubleclicktime(odata,mousedoubleclicktime)
+		imgui_set_imguiio_mousedoubleclickmaxdist(odata,mousedoubleclickmaxdist)
+		imgui_set_imguiio_mousedragthreshold(odata,mousedragthreshold)
+		imgui_set_imguiio_keyrepeatdelay(odata,keyrepeatdelay)
+		imgui_set_imguiio_keyrepeatrate(odata,keyrepeatrate)
+		imgui_set_imguiio_userdata(odata,userdata)
+		imgui_set_imguiio_fonts(odata,fonts)
+		imgui_set_imguiio_fontglobalscale(odata,fontglobalscale)
+		imgui_set_imguiio_fontallowuserscaling(odata,fontallowuserscaling)
+		imgui_set_imguiio_fontdefault(odata,fontdefault)
+		imgui_set_imguiio_displayframebufferscale_x(odata,displayframebufferscale.x)
+		imgui_set_imguiio_displayframebufferscale_y(odata,displayframebufferscale.y)
+		imgui_set_imguiio_configdockingnosplit(odata,configdockingnosplit)
+		imgui_set_imguiio_configdockingwithshift(odata,configdockingwithshift)
+		imgui_set_imguiio_configdockingalwaystabbar(odata,configdockingalwaystabbar)
+		imgui_set_imguiio_configdockingtransparentpayload(odata,configdockingtransparentpayload)
+		imgui_set_imguiio_configviewportsnoautomerge(odata,configviewportsnoautomerge)
+		imgui_set_imguiio_configviewportsnotaskbaricon(odata,configviewportsnotaskbaricon)
+		imgui_set_imguiio_configviewportsnodecoration(odata,configviewportsnodecoration)
+		imgui_set_imguiio_configviewportsnodefaultparent(odata,configviewportsnodefaultparent)
+		imgui_set_imguiio_mousedrawcursor(odata,mousedrawcursor)
+		imgui_set_imguiio_configmacosxbehaviors(odata,configmacosxbehaviors)
+		imgui_set_imguiio_configinputtrickleeventqueue(odata,configinputtrickleeventqueue)
+		imgui_set_imguiio_configinputtextcursorblink(odata,configinputtextcursorblink)
+		imgui_set_imguiio_configdragclicktoinputtext(odata,configdragclicktoinputtext)
+		imgui_set_imguiio_configwindowsresizefromedges(odata,configwindowsresizefromedges)
+		imgui_set_imguiio_configwindowsmovefromtitlebaronly(odata,configwindowsmovefromtitlebaronly)
+		imgui_set_imguiio_configmemorycompacttimer(odata,configmemorycompacttimer)
+		return odata
+
+	func setdata ostruct 
+		odata = ostruct
+		configflags = imgui_get_imguiio_configflags(ostruct)
+		backendflags = imgui_get_imguiio_backendflags(ostruct)
+		displaysize.x = imgui_get_imguiio_displaysize_x(ostruct)
+		displaysize.y = imgui_get_imguiio_displaysize_y(ostruct)
+		deltatime = imgui_get_imguiio_deltatime(ostruct)
+		inisavingrate = imgui_get_imguiio_inisavingrate(ostruct)
+		inifilename = imgui_get_imguiio_inifilename(ostruct)
+		logfilename = imgui_get_imguiio_logfilename(ostruct)
+		mousedoubleclicktime = imgui_get_imguiio_mousedoubleclicktime(ostruct)
+		mousedoubleclickmaxdist = imgui_get_imguiio_mousedoubleclickmaxdist(ostruct)
+		mousedragthreshold = imgui_get_imguiio_mousedragthreshold(ostruct)
+		keyrepeatdelay = imgui_get_imguiio_keyrepeatdelay(ostruct)
+		keyrepeatrate = imgui_get_imguiio_keyrepeatrate(ostruct)
+		userdata = imgui_get_imguiio_userdata(ostruct)
+		
+		#fonts = imgui_get_imguiio_fonts(ostruct)
+		fonts.setdata(imgui_get_imguiio_fonts(ostruct))
+		
+		fontglobalscale = imgui_get_imguiio_fontglobalscale(ostruct)
+		fontallowuserscaling = imgui_get_imguiio_fontallowuserscaling(ostruct)
+		
+		#fontdefault = imgui_get_imguiio_fontdefault(ostruct)
+		fontdefault.setdata(imgui_get_imguiio_fontdefault(ostruct))
+		
+		
+		displayframebufferscale.x = imgui_get_imguiio_displayframebufferscale_x(ostruct)
+		displayframebufferscale.y = imgui_get_imguiio_displayframebufferscale_y(ostruct)
+		configdockingnosplit = imgui_get_imguiio_configdockingnosplit(ostruct)
+		configdockingwithshift = imgui_get_imguiio_configdockingwithshift(ostruct)
+		configdockingalwaystabbar = imgui_get_imguiio_configdockingalwaystabbar(ostruct)
+		configdockingtransparentpayload = imgui_get_imguiio_configdockingtransparentpayload(ostruct)
+		configviewportsnoautomerge = imgui_get_imguiio_configviewportsnoautomerge(ostruct)
+		configviewportsnotaskbaricon = imgui_get_imguiio_configviewportsnotaskbaricon(ostruct)
+		configviewportsnodecoration = imgui_get_imguiio_configviewportsnodecoration(ostruct)
+		configviewportsnodefaultparent = imgui_get_imguiio_configviewportsnodefaultparent(ostruct)
+		mousedrawcursor = imgui_get_imguiio_mousedrawcursor(ostruct)
+		configmacosxbehaviors = imgui_get_imguiio_configmacosxbehaviors(ostruct)
+		configinputtrickleeventqueue = imgui_get_imguiio_configinputtrickleeventqueue(ostruct)
+		configinputtextcursorblink = imgui_get_imguiio_configinputtextcursorblink(ostruct)
+		configdragclicktoinputtext = imgui_get_imguiio_configdragclicktoinputtext(ostruct)
+		configwindowsresizefromedges = imgui_get_imguiio_configwindowsresizefromedges(ostruct)
+		configwindowsmovefromtitlebaronly = imgui_get_imguiio_configwindowsmovefromtitlebaronly(ostruct)
+		configmemorycompacttimer = imgui_get_imguiio_configmemorycompacttimer(ostruct)
+
+	func getconfigflags
+		return imgui_get_imguiio_configflags(odata)
+
+	func getbackendflags
+		return imgui_get_imguiio_backendflags(odata)
+
+	func getdeltatime
+		return imgui_get_imguiio_deltatime(odata)
+
+	func getinisavingrate
+		return imgui_get_imguiio_inisavingrate(odata)
+
+	func getinifilename
+		return imgui_get_imguiio_inifilename(odata)
+
+	func getlogfilename
+		return imgui_get_imguiio_logfilename(odata)
+
+	func getmousedoubleclicktime
+		return imgui_get_imguiio_mousedoubleclicktime(odata)
+
+	func getmousedoubleclickmaxdist
+		return imgui_get_imguiio_mousedoubleclickmaxdist(odata)
+
+	func getmousedragthreshold
+		return imgui_get_imguiio_mousedragthreshold(odata)
+
+	func getkeyrepeatdelay
+		return imgui_get_imguiio_keyrepeatdelay(odata)
+
+	func getkeyrepeatrate
+		return imgui_get_imguiio_keyrepeatrate(odata)
+
+	func getuserdata
+		return imgui_get_imguiio_userdata(odata)
+/*
+	func getfonts
+		return imgui_get_imguiio_fonts(odata)
+*/
+	func getfontglobalscale
+		return imgui_get_imguiio_fontglobalscale(odata)
+
+	func getfontallowuserscaling
+		return imgui_get_imguiio_fontallowuserscaling(odata)
+###########################################################################
+	func getfontdefault
+		return fontdefault.odata
+		#return imgui_get_imguiio_fontdefault(odata)  # das geht auch
+
+	func getconfigdockingnosplit
+		return imgui_get_imguiio_configdockingnosplit(odata)
+
+	func getconfigdockingwithshift
+		return imgui_get_imguiio_configdockingwithshift(odata)
+
+	func getconfigdockingalwaystabbar
+		return imgui_get_imguiio_configdockingalwaystabbar(odata)
+
+	func getconfigdockingtransparentpayload
+		return imgui_get_imguiio_configdockingtransparentpayload(odata)
+
+	func getconfigviewportsnoautomerge
+		return imgui_get_imguiio_configviewportsnoautomerge(odata)
+
+	func getconfigviewportsnotaskbaricon
+		return imgui_get_imguiio_configviewportsnotaskbaricon(odata)
+
+	func getconfigviewportsnodecoration
+		return imgui_get_imguiio_configviewportsnodecoration(odata)
+
+	func getconfigviewportsnodefaultparent
+		return imgui_get_imguiio_configviewportsnodefaultparent(odata)
+
+	func getmousedrawcursor
+		return imgui_get_imguiio_mousedrawcursor(odata)
+
+	func getconfigmacosxbehaviors
+		return imgui_get_imguiio_configmacosxbehaviors(odata)
+
+	func getconfiginputtrickleeventqueue
+		return imgui_get_imguiio_configinputtrickleeventqueue(odata)
+
+	func getconfiginputtextcursorblink
+		return imgui_get_imguiio_configinputtextcursorblink(odata)
+
+	func getconfigdragclicktoinputtext
+		return imgui_get_imguiio_configdragclicktoinputtext(odata)
+
+	func getconfigwindowsresizefromedges
+		return imgui_get_imguiio_configwindowsresizefromedges(odata)
+
+	func getconfigwindowsmovefromtitlebaronly
+		return imgui_get_imguiio_configwindowsmovefromtitlebaronly(odata)
+
+	func getconfigmemorycompacttimer
+		return imgui_get_imguiio_configmemorycompacttimer(odata)
+
+	func setconfigflags p1
+		imgui_set_imguiio_configflags(odata,p1)
+
+	func setbackendflags p1
+		imgui_set_imguiio_backendflags(odata,p1)
+
+	func setdeltatime p1
+		imgui_set_imguiio_deltatime(odata,p1)
+
+	func setinisavingrate p1
+		imgui_set_imguiio_inisavingrate(odata,p1)
+
+	func setinifilename p1
+		imgui_set_imguiio_inifilename(odata,p1)
+
+	func setlogfilename p1
+		imgui_set_imguiio_logfilename(odata,p1)
+
+	func setmousedoubleclicktime p1
+		imgui_set_imguiio_mousedoubleclicktime(odata,p1)
+
+	func setmousedoubleclickmaxdist p1
+		imgui_set_imguiio_mousedoubleclickmaxdist(odata,p1)
+
+	func setmousedragthreshold p1
+		imgui_set_imguiio_mousedragthreshold(odata,p1)
+
+	func setkeyrepeatdelay p1
+		imgui_set_imguiio_keyrepeatdelay(odata,p1)
+
+	func setkeyrepeatrate p1
+		imgui_set_imguiio_keyrepeatrate(odata,p1)
+
+	func setuserdata p1
+		imgui_set_imguiio_userdata(odata,p1)
+/*
+	func setfonts p1
+		imgui_set_imguiio_fonts(odata,p1)
+*/
+	func setfontglobalscale p1
+		imgui_set_imguiio_fontglobalscale(odata,p1)
+
+	func setfontallowuserscaling p1
+		imgui_set_imguiio_fontallowuserscaling(odata,p1)
+
+################
+	func setfontdefault p1
+		#imgui_set_imguiio_fontdefault(odata,p1)
+		fontdefault.setdata(p1)
+		imgui_set_imguiio_fontdefault(odata,fontdefault.odata)
+
+	func setconfigdockingnosplit p1
+		imgui_set_imguiio_configdockingnosplit(odata,p1)
+
+	func setconfigdockingwithshift p1
+		imgui_set_imguiio_configdockingwithshift(odata,p1)
+
+	func setconfigdockingalwaystabbar p1
+		imgui_set_imguiio_configdockingalwaystabbar(odata,p1)
+
+	func setconfigdockingtransparentpayload p1
+		imgui_set_imguiio_configdockingtransparentpayload(odata,p1)
+
+	func setconfigviewportsnoautomerge p1
+		imgui_set_imguiio_configviewportsnoautomerge(odata,p1)
+
+	func setconfigviewportsnotaskbaricon p1
+		imgui_set_imguiio_configviewportsnotaskbaricon(odata,p1)
+
+	func setconfigviewportsnodecoration p1
+		imgui_set_imguiio_configviewportsnodecoration(odata,p1)
+
+	func setconfigviewportsnodefaultparent p1
+		imgui_set_imguiio_configviewportsnodefaultparent(odata,p1)
+
+	func setmousedrawcursor p1
+		imgui_set_imguiio_mousedrawcursor(odata,p1)
+
+	func setconfigmacosxbehaviors p1
+		imgui_set_imguiio_configmacosxbehaviors(odata,p1)
+
+	func setconfiginputtrickleeventqueue p1
+		imgui_set_imguiio_configinputtrickleeventqueue(odata,p1)
+
+	func setconfiginputtextcursorblink p1
+		imgui_set_imguiio_configinputtextcursorblink(odata,p1)
+
+	func setconfigdragclicktoinputtext p1
+		imgui_set_imguiio_configdragclicktoinputtext(odata,p1)
+
+	func setconfigwindowsresizefromedges p1
+		imgui_set_imguiio_configwindowsresizefromedges(odata,p1)
+
+	func setconfigwindowsmovefromtitlebaronly p1
+		imgui_set_imguiio_configwindowsmovefromtitlebaronly(odata,p1)
+
+	func setconfigmemorycompacttimer p1
+		imgui_set_imguiio_configmemorycompacttimer(odata,p1)
+
+
