@@ -102,6 +102,16 @@ j = 0
 
 begin_combo_current_item = ""
 
+is_selected = true
+
+current_item = 0
+
+/*
+for x = 1 to 10000
+	listbox_items + (""+x)
+next
+*/
+
 ####################################################
 
 myevent = sdl_new_sdl_event()
@@ -446,13 +456,60 @@ if thevent != 0
 
 			imgui_Text("Custom Combo")
 
-			if ig_BeginListBox("list begin", v2)  
-			    
-				imgui_EndListBox()
-			ok
+
 
 
 			imgui_TreePop()
+		ok
+		
+		if imgui_treenode("List Boxes") 
+
+			if imgui_ListBox("listbox", :current_item_listbox, listbox_items, len(listbox_items), 4)
+
+			ok
+
+			if ig_BeginListBox("listbox 1", v2)  
+			    
+				for z = 1  to len(listbox_items) 
+					
+					is_selected = (current_item = z)
+					if ig_Selectable(listbox_items[z],is_selected,1,v2)
+						current_item = z
+						? current_item
+					ok
+
+					#if is_selected      
+					#	imgui_SetItemDefaultFocus()
+					#ok
+
+				next
+
+				imgui_EndListBox()
+			ok
+
+			ImGui_Text("Full-width:");
+
+			//|# if ig_BeginListBox("##listbox 2", imvec2(-1,200 ))  
+			if ig_BeginListBox("##listbox 2", imvec2(-1,5 * ImGui_GetTextLineHeightWithSpacing()))  
+			    
+				for z = 1  to len(listbox_items) 
+					
+					is_selected = (current_item = z)
+					if ig_Selectable(listbox_items[z],is_selected,1,v2)
+						current_item = z
+						? current_item
+					ok
+
+					#if is_selected      
+					#	imgui_SetItemDefaultFocus()
+					#ok
+
+				next
+
+				imgui_EndListBox()
+			ok
+
+		 	imgui_TreePop()
 		ok
 
 		if imgui_treenode("anthor Font") 

@@ -678,7 +678,7 @@ RING_FUNC(ring_ImColor_HSV)
 	}
 }
 
-
+/*
 RING_FUNC(ring_Combo)
 {
         if ( RING_API_PARACOUNT != 5 ) {
@@ -732,7 +732,62 @@ RING_FUNC(ring_Combo)
         RING_API_RETNUMBER(Combo(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2), str , (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5)));
         RING_API_ACCEPTINTVALUE(2);
 }
+*/
 
+RING_FUNC(ring_Combo)
+{
+	if (RING_API_PARACOUNT != 5)
+	{
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if (!RING_API_ISSTRING(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISSTRING(2))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISLIST(3))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISNUMBER(4))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	if (!RING_API_ISNUMBER(5))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	List *pList;
+
+	pList = RING_API_GETLIST(3);
+
+	// static char *str[100];
+
+	char **str = (char **)malloc((ring_list_getsize(pList) + 1) * sizeof(char **));
+
+	int x;
+
+	for (x = 1; x <= ring_list_getsize(pList); x++)
+	{
+		str[x - 1] = (char *)ring_list_getstring(pList, x);
+	}
+	str[x - 1] = NULL;
+
+	RING_API_RETNUMBER(Combo(RING_API_GETSTRING(1), RING_API_GETINTPOINTER(2), str, (int)RING_API_GETNUMBER(4), (int)RING_API_GETNUMBER(5)));
+	RING_API_ACCEPTINTVALUE(2);
+
+	free(str);
+}
 
 RING_FUNC(ring_InputText)
 {

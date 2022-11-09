@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>I:\Git_imgui_r\build\Release\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\Release\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>I:\Git_imgui_r\build\Release\imgu_ring.dll</FullPath>
+      <FullPath>C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\Release\imgu_ring.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
