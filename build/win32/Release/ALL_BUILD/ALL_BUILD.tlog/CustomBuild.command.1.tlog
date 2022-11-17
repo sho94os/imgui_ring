@@ -1,6 +1,6 @@
-^C:\USERS\HP\DESKTOP\NEUER ORDNER\IMGUI_RING\CMAKELISTS.TXT
+^I:\GIT_IMGUI_R\CMAKELISTS.TXT
 setlocal
-C:\cmake-3.23.1-windows-x86_64\bin\cmake.exe "-SC:/Users/HP/Desktop/Neuer Ordner/imgui_ring" "-BC:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build" --check-stamp-file "C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-file I:/Git_imgui_r/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

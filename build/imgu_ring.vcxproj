@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{623197D1-A8A6-3C2F-8AA9-DA0BAB3E00A9}</ProjectGuid>
+    <ProjectGuid>{91E684AA-2CE3-37A8-929C-6B7981A144B3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>win32</Platform>
@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">I:\Git_imgui_r\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">imgu_ring.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">imgu_ring</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|win32'">I:\Git_imgui_r\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|win32'">imgu_ring.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|win32'">imgu_ring</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">I:\Git_imgui_r\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">imgu_ring.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">imgu_ring</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">.dll</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">I:\Git_imgui_r\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">imgu_ring.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">imgu_ring</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">.dll</TargetExt>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";imgu_ring_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -119,8 +119,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/Debug/imgu_ring.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/Debug/imgu_ring.pdb</ProgramDataBaseFile>
+      <ImportLibrary>I:/Git_imgui_r/build/Debug/imgu_ring.lib</ImportLibrary>
+      <ProgramDataBaseFile>I:/Git_imgui_r/build/Debug/imgu_ring.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -146,10 +146,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";imgu_ring_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -162,8 +162,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/Release/imgu_ring.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/Release/imgu_ring.pdb</ProgramDataBaseFile>
+      <ImportLibrary>I:/Git_imgui_r/build/Release/imgu_ring.lib</ImportLibrary>
+      <ProgramDataBaseFile>I:/Git_imgui_r/build/Release/imgu_ring.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -172,7 +172,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -189,10 +189,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";imgu_ring_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -205,8 +205,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/MinSizeRel/imgu_ring.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/MinSizeRel/imgu_ring.pdb</ProgramDataBaseFile>
+      <ImportLibrary>I:/Git_imgui_r/build/MinSizeRel/imgu_ring.lib</ImportLibrary>
+      <ProgramDataBaseFile>I:/Git_imgui_r/build/MinSizeRel/imgu_ring.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -215,7 +215,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -231,10 +231,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";imgu_ring_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\ring\ring\language\include;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\ring\ring\language\include;I:\Git_imgui_r\imgui;C:\SDL2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -247,8 +247,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/RelWithDebInfo/imgu_ring.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/RelWithDebInfo/imgu_ring.pdb</ProgramDataBaseFile>
+      <ImportLibrary>I:/Git_imgui_r/build/RelWithDebInfo/imgu_ring.lib</ImportLibrary>
+      <ProgramDataBaseFile>I:/Git_imgui_r/build/RelWithDebInfo/imgu_ring.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -256,11 +256,11 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\CMakeLists.txt">
+    <CustomBuild Include="I:\Git_imgui_r\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">Building Custom Rule C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">Building Custom Rule I:/Git_imgui_r/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">setlocal
-C:\cmake-3.23.1-windows-x86_64\bin\cmake.exe "-SC:/Users/HP/Desktop/Neuer Ordner/imgui_ring" "-BC:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build" --check-stamp-file "C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-file I:/Git_imgui_r/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -268,12 +268,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">I:\Git_imgui_r\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|win32'">Building Custom Rule C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|win32'">Building Custom Rule I:/Git_imgui_r/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|win32'">setlocal
-C:\cmake-3.23.1-windows-x86_64\bin\cmake.exe "-SC:/Users/HP/Desktop/Neuer Ordner/imgui_ring" "-BC:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build" --check-stamp-file "C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-file I:/Git_imgui_r/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -281,12 +281,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|win32'">I:\Git_imgui_r\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">Building Custom Rule C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">Building Custom Rule I:/Git_imgui_r/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">setlocal
-C:\cmake-3.23.1-windows-x86_64\bin\cmake.exe "-SC:/Users/HP/Desktop/Neuer Ordner/imgui_ring" "-BC:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build" --check-stamp-file "C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-file I:/Git_imgui_r/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -294,12 +294,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">I:\Git_imgui_r\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">Building Custom Rule C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">Building Custom Rule I:/Git_imgui_r/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">setlocal
-C:\cmake-3.23.1-windows-x86_64\bin\cmake.exe "-SC:/Users/HP/Desktop/Neuer Ordner/imgui_ring" "-BC:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build" --check-stamp-file "C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-file I:/Git_imgui_r/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -307,24 +307,24 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\3.23.1\CMakeSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\cmake-3.23.1-windows-x86_64\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeCXXCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeRCCompiler.cmake;I:\Git_imgui_r\build\CMakeFiles\3.23.1\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">I:\Git_imgui_r\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_demo.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_draw.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_impl_sdl.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_impl_sdlrenderer.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_tables.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\mylib.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_demo.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_draw.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_impl_sdl.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_impl_sdlrenderer.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_tables.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="I:\Git_imgui_r\mylib.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\build\ZERO_CHECK.vcxproj">
-      <Project>{886FCF2E-1C8F-3CD9-BEBF-8B2D87D477A6}</Project>
+    <ProjectReference Include="I:\Git_imgui_r\build\ZERO_CHECK.vcxproj">
+      <Project>{181AEE8A-E343-3576-AEBF-DC8068F32388}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

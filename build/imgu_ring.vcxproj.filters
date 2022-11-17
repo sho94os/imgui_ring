@@ -1,37 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_demo.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_draw.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_impl_sdl.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_impl_sdl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_impl_sdlrenderer.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_impl_sdlrenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_tables.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_tables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\imgui\imgui_widgets.cpp">
+    <ClCompile Include="I:\Git_imgui_r\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\mylib.cpp">
+    <ClCompile Include="I:\Git_imgui_r\mylib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\HP\Desktop\Neuer Ordner\imgui_ring\CMakeLists.txt" />
+    <CustomBuild Include="I:\Git_imgui_r\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{4C49B5CA-B6D6-3C51-A1D4-70AB8322E08F}</UniqueIdentifier>
+      <UniqueIdentifier>{BB6E4EEA-83BB-36AC-B8D0-B0F30FDB7CE5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

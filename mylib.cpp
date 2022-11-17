@@ -7717,7 +7717,7 @@ RING_FUNC(ring_ColorEdit3)
 		}
 
 		float arr[3] = {
-			(float)ring_list_getdoublei(pList, 1),
+			(float)ring_list_getdouble(pList, 1),
 			(float)ring_list_getdouble(pList, 2),
 			(float)ring_list_getdouble(pList, 3)};
 

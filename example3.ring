@@ -106,6 +106,9 @@ is_selected = true
 
 current_item = 0
 
+
+combo_flags = 0
+
 /*
 for x = 1 to 10000
 	listbox_items + (""+x)
@@ -405,7 +408,33 @@ if thevent != 0
 
 
 		if imgui_treeNode("Combo")
-			
+
+
+			if ImGui_Combo("combo 0", :item_current, items, len(items) ,-1)
+				? "value chanched : " + item_current
+			ok
+
+			#imgui_checkboxflags("ImGuiComboFlags_PopupAlignLeft",combo_flags,ImGuiComboFlags_PopupAlignLeft)
+
+			if imgui_checkboxflags("ImGuiComboFlags_NoArrowButton",:combo_flags, ImGuiComboFlags_NoArrowButton)
+            	combo_flags &= ~ImGuiComboFlags_NoPreview
+			ok 
+        	if imgui_checkboxflags("ImGuiComboFlags_NoPreview",:combo_flags, ImGuiComboFlags_NoPreview)
+            	combo_flags &= ~ImGuiComboFlags_NoArrowButton; // Clear the other flag, as we cannot combine both
+			ok
+
+
+			if imgui_begincombo("combo 1",begin_combo_current_item,combo_flags)
+
+				for i = 1  to len(items) 
+					if ig_Selectable(items[i],1,0,v2)
+						begin_combo_current_item = items[i]
+					ok	
+				next
+
+				imgui_EndCombo()
+			ok
+
 
 			w = imgui_CalcItemWidth()
 			spacing = style.iteminnerspacing.x
@@ -526,6 +555,59 @@ if thevent != 0
 
 		 	imgui_TreePop()
 		ok
+
+		if  imgui_treenode("tabs")
+
+			if  imgui_treenode("basic")
+
+				if imgui_beginTabBar("MyTabBar", 0)
+
+					if ImGui_BeginTabItem("Avocado", NULL , 0)
+                
+                    	ImGui_Text("This is the Avocado tab!\nblah blah blah blah blah");
+                    	ImGui_EndTabItem()
+					
+					ok
+
+					if ImGui_BeginTabItem("Broccoli", NULL , 0)
+                
+                    	ImGui_Text("This is the Broccoli tab!\nblah blah blah blah blah");
+                    	ImGui_EndTabItem()
+					
+					ok
+
+					if ImGui_BeginTabItem("Cucumber", NULL , 0)
+                
+                    	ImGui_Text("This is the Cucumber tab!\nblah blah blah blah blah");
+                    	ImGui_EndTabItem()
+					
+					ok
+
+					
+					ImGui_Separator()
+					ImGui_Separator()
+
+					imgui_endTabBar()
+				ok
+
+				imgui_TreePop()
+			ok
+
+			if  imgui_treenode("Advanced & Close Button")
+
+				imgui_TreePop()
+			ok
+
+			if  imgui_treenode("TabItemButton & Leading/Trailing flags")
+
+				imgui_TreePop()
+			ok
+
+			imgui_TreePop()
+		ok
+
+
+
 
 		imgui_end()
 	

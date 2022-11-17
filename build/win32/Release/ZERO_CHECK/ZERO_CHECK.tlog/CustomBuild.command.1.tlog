@@ -1,6 +1,6 @@
-^C:\USERS\HP\DESKTOP\NEUER ORDNER\IMGUI_RING\BUILD\CMAKEFILES\CA3ADC3970A169F74A35254DEB1CED00\GENERATE.STAMP.RULE
+^I:\GIT_IMGUI_R\BUILD\CMAKEFILES\2DD4A698F0CFB57ED534DB0EC567601A\GENERATE.STAMP.RULE
 setlocal
-C:\cmake-3.23.1-windows-x86_64\bin\cmake.exe "-SC:/Users/HP/Desktop/Neuer Ordner/imgui_ring" "-BC:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/HP/Desktop/Neuer Ordner/imgui_ring/build/imgu_ring.sln"
+"C:\Program Files\CMake\bin\cmake.exe" -SI:/Git_imgui_r -BI:/Git_imgui_r/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file I:/Git_imgui_r/build/imgu_ring.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
